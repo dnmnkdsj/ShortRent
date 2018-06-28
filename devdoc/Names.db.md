@@ -12,6 +12,7 @@ bool: 布尔值
     * name: str: 用户名
 	* password: str: 密码 (密文)
     * rank: double: 评分
+    * valid: bool: 是否通过审核
 * houses 房屋
     * [main] id: str: ID
     * address: str: 地址(精确到城市, 任意填写)

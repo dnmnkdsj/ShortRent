@@ -1,9 +1,5 @@
 from flask import Flask
+from .inner_test import inner_test as bp_inner_test
 
 app = Flask(__name__)
-
-@app.route('/')
-def hello_world():
-    return 'Hello world!'
-
-
+app.register_blueprint(bp_inner_test)
