@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, redirect
 from . import inner_test
 
 
-@inner_test.route('/test/<a>/<b>')
+@inner_test.route('/test/add/<a>/<b>')
 def inner_test_add(a, b):
     """
     Sample: take two intergers, show their sum.
@@ -27,7 +27,7 @@ def inner_test_react():
         xa = int(request.form['user'])
         xb = int(request.form['password'])
         print('succ.')
-        return redirect('/test/' + str(xa) + '/' + str(xb))
+        return redirect('/test/add/' + str(xa) + '/' + str(xb))
     except Exception as err:
         pass
     finally:
