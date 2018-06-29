@@ -14,9 +14,10 @@ db_create_users_cmd = 'create table if not exists users(' + ','.join([
     'password text',
     'rank real',
     'valid bit'
+    'admin bit'
     ]) + ')'
 
-db_create_houses_cmd = 'create table if not exists hosues(' + ','.join([
+db_create_houses_cmd = 'create table if not exists houses(' + ','.join([
     'id text primary key',
     'address text',
     'title text',
