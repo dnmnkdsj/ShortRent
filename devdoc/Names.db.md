@@ -17,11 +17,11 @@ bool: 布尔值. 数据库内类型为Yes/No.
     * [main] id: str: ID
     * address: str: 地址(精确到城市, 任意填写)
     * title: str: 标题
-    * description: 房屋简介
+    * description: str: 房屋简介
     * master: str: 户主(邮箱)
     * rank: double: 房屋评级
     * picture: str: 图片文件夹. 文件夹下每一个图片索引至一个uri. 
-    * order: str: 关联订单
+    * orders: str: 关联订单
     * value: double: 显示价格
     * valid: bool: 是否通过
 * orders 订单
