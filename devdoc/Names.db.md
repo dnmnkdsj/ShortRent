@@ -3,9 +3,9 @@
 所有数据库的命名以及, 数据库表格内的命名参照此文档。  
 加有标志[main]的表示主键, 主键在每一张表内恒唯一.
 
-str: 字符串.
+str: 字符串. 数据库内类型为text.
 double: IEEE 64位浮点数. 数据库内类型为Double.
-bool: 布尔值. 数据库内类型为Yes/No.
+bool: 布尔值. 数据库内类型为int.
 
 * users 用户
     * [main] mail: str: 注册邮箱
@@ -31,5 +31,7 @@ bool: 布尔值. 数据库内类型为Yes/No.
     * customer: str: 发起人(租用者)的id(邮箱)
     * owner: str: 承接人(房屋持有人)的id(邮箱)
     * house: str: 关联房屋的id [一个订单有且仅有一个房屋]
+    * customer_ranked: str: 发起人(租用者)是否已评分
+    * owner_ranked: str: 承接人(房屋持有人)是否已评分
     * passed: bool: 审核状态 [true: 审核通过. false: 审核未通过]
     * done: bool: 交易状态 [true: 交易完成. false: 审核完毕, 交易中]
