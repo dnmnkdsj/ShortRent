@@ -29,7 +29,6 @@ a:hover {
 #header {
   padding-top: 10px;
   padding-bottom: 10px;
-  
 }
 #header .header-image {
     padding-left: 20px;
@@ -123,29 +122,28 @@ section {
 #stars h4 {
 	text-align: center;
 }
- .section-title {
+.section-title {
  	padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
-    background: url(../images/短租首页/u329.png) repeat-x center;
 }
- .section-title div {
+.section-title div {
   width: 30%;
   margin: 0 auto;
   background-color: white;
 }
- .section-title span {
+.section-title span {
   font-weight: 400; */
   font-style: normal;
   font-size: 36px;
 }
- small {
+small {
  	padding-left: 10px;
- }
- #rooms-recommend .content p {
+}
+#rooms-recommend .content p {
  	display: inline;
- }
- .room-price {
+}
+.room-price {
     position: absolute;
     width: 25%;
     text-align: center;
@@ -156,27 +154,29 @@ section {
     padding-bottom: 8px;
     border: 1px solid transparent;
     border-radius: 5px;
- }
- #rooms-recommend .content .room-price {
+}
+#rooms-recommend .content .room-price {
     left: 273px;
     top: 220px;
 }
- #rooms-recommend .content a {
+#rooms-recommend .content a {
  	margin-left: 10px;
- }
-#rooms-recommend .content .medal-logo {
-    position: absolute;
-    top: 10px;
-    left: 20px;
+}
+
+#rooms-recommend .content h4 {
+  position: relative;
+  top:-20px;
+}
+.badge{
+  background-color: #faa43d;
 }
 .favour-logo {
 	position: absolute;
-    cursor: pointer;
+  cursor: pointer;
 } 
 #rooms-recommend .content .favour-logo {
-    top: 10px;
-    left: 335px;
-
+  top: 10px;
+  left: 335px;
 }
 
 
@@ -237,11 +237,22 @@ section {
     font-weight: normal;
     background: none;
     border: 1px solid #E6E4E4;
-    color: #D2D1D1;
     outline: none;
     font-size: 14px;
     margin-top: 20px;
    font-family: 'Montserrat', sans-serif;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{/* WebKit browsers */
+  color:#D2D1D1;
+}
+input:-moz-placeholder, textarea:-moz-placeholder{/* Mozilla Firefox 4 to 18 */
+  color:#D2D1D1;
+}
+input::-moz-placeholder, textarea::-moz-placeholder{/* Mozilla Firefox 19+ */
+  color:#D2D1D1;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{/* Internet Explorer 10+ */
+  color:#D2D1D1;
 }
 
 .login-right h4{
@@ -256,7 +267,7 @@ section {
 .login-right h4 a:hover{
 	color:#faa43d;
 }
-.login-right input[type="submit"] {
+.login-right input[id="btn-reg"] {
   background:#2da9e1;
   color: #fff;
   font-size: 1.5em;
@@ -264,15 +275,15 @@ section {
   width: 100%;
   outline: none;
   -webkit-appearance:none;
-      padding: .5em 0;
+  padding: .5em 0;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
-    margin-top: .5em;
-    font-family: 'PT Sans', sans-serif;
+  margin-top: .5em;
+  font-family: 'PT Sans', sans-serif;
 }
-.login-right input[type="submit"]:hover {
+.login-right input[id="btn-reg"]:hover {
 	background:#faa43d;
 }
 .login-grids p {
