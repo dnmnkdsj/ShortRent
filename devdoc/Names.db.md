@@ -26,7 +26,7 @@ bool: 布尔值. 数据库内类型为Yes/No.
     * valid: bool: 是否通过
 * orders 订单
     * [main] id: str: ID [使用时间顺序递增赋值(待商定)]
-	* time: str: 发布时间 [按天计(待商定). 使用sqlite自带的时间处理函数把字符串转成Data或其它数据类型进行运算.]
+	* time: str: 发布时间 [按天计(待商定). 使用sqlite自带的时间处理函数把字符串转成Data或其它数据类型进行运算. 格式'yyyy-mm-dd'.]
     * value: double: 订单价格
     * customer: str: 发起人(租用者)的id(邮箱)
     * owner: str: 承接人(房屋持有人)的id(邮箱)

@@ -1,18 +1,18 @@
-# this module is only for administrators' management.
+# this file provides function to grab info from database and deliver to the frontpage.
 
 from . import orders
-from flask import session, current_app, jsonify, request
+from flask import request
 from .utils import *
 
+# TODO:
+orders_page = redirect('/test/page')
+
+# page for displaying orders and other info.
 @orders.route('/orders')
 def get_orders_page():
     return orders_page
 
-@orders.route('/orders/management')
-def get_orders_management_page():
-    if not check_permission() : return permission_denied_return
-    return orders_management_page
-
+# this url is for grabbing data only.
 @orders.route('/orders/getinfo', methods=['GET'])
 def get_orders_info():
     """
