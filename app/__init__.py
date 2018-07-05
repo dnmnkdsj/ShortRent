@@ -4,8 +4,9 @@ from flask_login import LoginManager
 
 from config import config
 
+
 # Create objects
-mail = Mail()
+# mail = Mail()
 login_manager = LoginManager()
 
 
@@ -28,7 +29,7 @@ def create_app(config_name):
         app.register_blueprint(bp_orders)
 
     # initialize objects
-    mail.init_app(app)
+    # mail.init_app(app)
     # login system initialization
     login_manager.init_app(app)
     login_manager.login_view = 'users.login'
