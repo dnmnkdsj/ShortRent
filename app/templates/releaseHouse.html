@@ -8,12 +8,76 @@
 	<script src="../static/js/jquery.min.js"></script>
 	<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
+<style>
+.release{
+	width: 500px;
+	margin: 10px auto 0 auto;
+}
+.release h3{
+
+	font-size: 2.5em;
+	text-transform: capitalize;
+	text-align: center;
+	font-family: 'Righteous', cursive;
+	color: #faa43d;
+}
+.release input[type="text"]{
+	width: 100%;
+	padding: 10px;
+	font-weight: normal;
+	background: none;
+	border: 1px solid #E6E4E4;
+	outline-color: #faa43d;
+	font-size: 10px;
+	font-family: 'Montserrat', sans-serif;
+}
+label{
+	margin-top: 20px;
+}
+#info{
+	outline-color: #faa43d;
+}
+#upload{
+	background:#2da9e1;
+	color: #fff;
+	font-size: 1.5em;
+	border: none;
+	width: 50%;
+	outline: none;
+	-webkit-appearance:none;
+	padding: .5em 0;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	margin-top: 1em;
+	margin-bottom: 5em;
+	font-family: 'PT Sans', sans-serif;
+}
+#upload:hover {
+	background:#faa43d;
+}
+
+</style>
 <body>
-	<form id="fm" enctype="multipart/form-data">
-		<input type="text" name="title"/>
-		<input type="file" multiple id="img" name="img[]" accept="image/*" />
-		<input type="button" id="upload" value="提交">
-	</form>
+	<div class="release">
+		 <!-- enctype="multipart/form-data"加不加待定 -->
+		<form action="" id="fm">
+			<h3>发布房源</h3>
+			<label>标题</label>
+			<input name="title" type="text">	
+			<label>价格/晚</label>
+			<input name="cost" type="text">
+			<label>地址</label>
+			<input name="addr" type="text">
+			<label>简介</label><br/>
+			<textarea id="info" name="info" cols="60" rows="7" ></textarea><br/>
+			<label>上传图片</label>
+			<input type="file" multiple id="img" name="img[]" accept="image/*" />
+			<input type="button" id="upload" value="立即发布" >
+		</form>
+	</div>	
+
 	<script>
 		$("#upload").click(function(){
 			$("#fm").ajaxSubmit({
