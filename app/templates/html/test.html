@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="UTF-8">
+	<title>发布房源</title>
+	<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<form id="fm" enctype="multipart/form-data">
+		<input type="text" name="title"/>
+		<input type="file" multiple id="img" name="img[]" accept="image/*" />
+		<input type="button" id="upload" value="提交">
+	</form>
+	<script>
+		$("#upload").click(function(){
+			$("#fm").ajaxSubmit({
+				url:'',
+				type:'POST',
+				dataType:'json',
+				success:function(data){
+					console.log(data);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

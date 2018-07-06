@@ -267,7 +267,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder{/* Internet Explorer
 .login-right h4 a:hover{
 	color:#faa43d;
 }
-.login-right input[id="btn-reg"] {
+.login-right input[id="btn-reg"],input[id="btn-login"]{
   background:#2da9e1;
   color: #fff;
   font-size: 1.5em;
@@ -283,7 +283,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder{/* Internet Explorer
   margin-top: .5em;
   font-family: 'PT Sans', sans-serif;
 }
-.login-right input[id="btn-reg"]:hover {
+.login-right input[id="btn-reg"],input[id="btn-login"]:hover {
 	background:#faa43d;
 }
 .login-grids p {
