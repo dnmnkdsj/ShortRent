@@ -283,7 +283,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder{/* Internet Explorer
   margin-top: .5em;
   font-family: 'PT Sans', sans-serif;
 }
-.login-right input[id="btn-reg"],input[id="btn-login"]:hover {
+.login-right input[id="btn-reg"]:hover,input[id="btn-login"]:hover {
 	background:#faa43d;
 }
 .login-grids p {
