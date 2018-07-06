@@ -2,20 +2,20 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, url_for, request, jsonify
-import sqlite3
-import db.database as _db
+from ..db import database as _db
+from . import houses
 
 ''' show the information of specific house'''
 
 
 # 接受信息: house_id:房屋的id
 
-@app.route('/house_info/')
+@houses.route('/house_info/')
 def house_info():
     return render_template('templates/book.html')
 
 
-@app.route('/house_info/<int:house_id>')
+@houses.route('/house_info/<int:house_id>')
 def house_info(house_id):
     db = _db.getdb()
     cur = db.cursor()

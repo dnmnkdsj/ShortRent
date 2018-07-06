@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, redirect, url_for, request, render_template, jsonify
-import sqlite3
-import db.database as _db
+from . import houses
+from ..db import database as _db
 import random
 
 ''' show information of serveral houses randomly'''
@@ -12,12 +12,12 @@ import random
 # 返回house id 与 图片 标题
 #  res = "{"id":[idlist],"pictures":[[],[],[]],"title":[titlelist]}"
 
-@app.route('/showhouse/')
+@houses.route('/showhouse/')
 def showhouse():
     return render_template("showhouse.html")
 
 
-@app.route('/housemsg/')
+@houses.route('/housemsg/')
 def housemsg():
     db = _db.getdb()
     cur = db.cursor()

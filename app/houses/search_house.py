@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, url_for, request, jsonify
+from . import houses
 import sqlite3, json
-import db.database as _db
+from ..db import database as _db
 
 ''' search the houses by keyword '''
 
@@ -11,12 +12,12 @@ import db.database as _db
 # 接受： keyword 返回:查找状态（1：有结果，0：无结果）、house id 与 图片 标题
 #  res = "{'status': ,id':[idlist],'pictures':[[],[],[]],'title':[titlelist]}"
 
-@app.route('/searchpage/')
+@houses.route('/searchpage/')
 def searchpage():
     return render_template('search_house.html')
 
 
-@app.route('/search/', methods=['GET', 'POST'])
+@houses.route('/search/', methods=['GET', 'POST'])
 def search():
     if request.method == 'POST':
         db = _db.getdb()
