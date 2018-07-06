@@ -19,8 +19,8 @@ def create_app(config_name):
     # All initializing should be written here.
     # this is necessary for properly getting the *app* object when initializing.
     with app.app_context():
-        # from .mail import mail
-        # app.register_blueprint(bp_inner_test)
+        from .main import main as main_blueprint
+        app.register_blueprint(main_blueprint)
         from .users import users as bp_users
         app.register_blueprint(bp_users)
         from .houses import houses as bp_houses
@@ -28,13 +28,12 @@ def create_app(config_name):
         from .orders import orders as bp_orders
         app.register_blueprint(bp_orders)
 
-    # initialize objects
-    # mail.init_app(app)
-    # login system initialization
-    login_manager.init_app(app)
-    login_manager.login_view = 'users.login'
-    login_manager.login_message = 'need login to visit'
-    login_manager.session_protection = 'strong'
+        # initialize objects
+        # login system initialization
+        login_manager.init_app(app)
+        login_manager.login_view = 'users.login'
+        login_manager.login_message = 'need login to visit'
+        login_manager.session_protection = 'strong'
 
     return app
 

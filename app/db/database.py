@@ -1,11 +1,12 @@
 ## Database.
 
-from flask import g
+from flask import g, current_app
 from sqlite3 import *
+
 
 def getdb():
     if not hasattr(g, 'database'):
-        g.database = connect("all.db") # hard code database path.
+        g.database = connect("all.db")  # hard code database path.
     return g.database
 
 db_create_users_cmd = 'create table if not exists users(' + ','.join([
@@ -40,6 +41,7 @@ db_create_orders_cmd = 'create table if not exists orders(' + ','.join([
     'done BOOL not null'
     ]) + ')'
 
+
 def ensure_tables_exist():
     global db_create_users_cmd, db_create_houses_cmd, db_create_orders_cmd
     """
@@ -51,6 +53,7 @@ def ensure_tables_exist():
     db.execute(db_create_users_cmd)
     db.execute(db_create_houses_cmd)
     db.execute(db_create_orders_cmd)
+
 
 def detachdb():
     if hasattr(g, 'database'):
