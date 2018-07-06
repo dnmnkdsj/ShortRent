@@ -1,0 +1,102 @@
+.container>p {
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+#message>p {
+    position: relative;
+    z-index: 1000;
+	width: 100px;
+    border: 1px solid black;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: none;
+    background: white;
+}
+.chat-room {
+	position: relative;
+    top: -1px;
+	border: 1px solid black;
+    padding: 10px;
+    height: 120px;
+    overflow: auto;
+}
+.chat-room img {
+	display: block;
+    float: left;
+}
+.chat-room>div {
+    width: 80%;
+    margin-left: 100px;
+}
+.message-list {
+	text-align: center;
+}
+.message-list>a {
+	margin-bottom: 10px;
+}
+.message-list>a:hover {
+	border-color: red;
+}
+.message-list>a>span {
+	margin-right: 10px;
+}
+
+/********************* 我的订单******************/
+#charging, #charged, #all-orders{
+	font-size: 13px;
+	height: 200px;
+}
+#charging p a, #charged p a, #all-orders p a{
+	color: #419ED8;
+}
+#charging p a:hover, #charged p a:hover, #all-orders p a:hover {
+	color: black;
+	text-decoration: underline;
+}
+.order-num{
+	margin-top: 20px;
+}
+.order-address {
+	width: 40%;
+	float: left;
+	/* border-right: 1px solid green; */
+	margin-top: 15px;
+}
+.order-address>div {
+	float: right;
+    width: 60%;
+    padding: 10px 8px;
+    margin-right: 0px;
+}
+.order-item {
+	width: 20%;
+	height: 112px;
+    float: left;
+    padding-left: 10px;
+    border-left: 1px solid green;
+    padding-right: 10px;
+    text-align: center;
+    margin-top: 15px;
+}
+.order-item input {
+	width: 90px;
+}
+.order-item-center {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/********************* 我的房屋******************/
+#order,#house{
+	font-size: 13px;
+	height: 200px;
+}
+#order p a,#house p a{
+	color: #419ED8;
+}
+#order p a:hover,#house p a:hover {
+	color: black;
+	text-decoration: underline;
+}

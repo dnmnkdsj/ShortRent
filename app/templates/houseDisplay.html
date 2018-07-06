@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/houseDisplay.css">
+	<link rel="stylesheet" href="../static/css/jquery.pagination.css">
+	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="../static/js/jquery.pagination.min.js"></script>
+  <title>房源展示</title>
+</head>
+<body>
+<!-- 导航栏 -->
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" id="header">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="color: white">短租网</a>
+      </div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">首页</a></li>
+          <li><a href="#">登陆</a></li>
+          <li><a href="#">注册</a></li>
+          <li><a href="#">发布房源</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<div>
+            <input type="text" class="" placeholder="城市或目的地">
+            <button type="button" class="">
+            	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </div>
+				</form>
+      </div>
+    </div>
+  </nav>
+<!-- 关键词 -->
+  <section class="container" id="display-list">
+	<p> 房源展示</p>
+  	<div class="panel panel-success">
+      <div class="panel-heading">
+        <img style="width:100%" src="../static/images/banner.jpg" alt="">
+      </div>
+      <table class="table table-hover">
+          <tbody>
+          	<tr>
+          	  <th>类型</th>
+          	  <td><a href="#">不限</a></td>
+          	  <td><a href="#">整租</a></td>
+          	  <td><a href="#">合租</a></td>
+          	</tr>
+          	<tr>
+          	  <th>区域</th>
+          	  <td><a href="#">不限</a></td>
+          	  <td><a href="#">市中心</a></td>
+          	  <td><a href="#">景区</a></td>
+          	  <td><a href="#">郊区</a></td>
+          	</tr>
+          	<tr>
+          	  <th>租金</th>
+          	  <td><a href="#">不限</a></td>
+          	  <td><a href="#">50以下</a></td>
+          	  <td><a href="#">50-100</a></td>
+          	  <td><a href="#">200-300</a></td>
+          	  <td><a href="#">300-400</a></td>
+          	  <td><a href="#">400以上</a></td>
+          	</tr>
+          	<tr>
+          	  <th>居室</th>
+          	  <td><a href="#">不限</a></td>
+          	  <td><a href="#">一居</a></td>
+          	  <td><a href="#">二居</a></td>
+          	  <td><a href="#">三居</a></td>
+          	  <td><a href="#">四居</a></td>
+          	  <td><a href="#">五居</a></td>
+          	</tr>
+          	<tr>
+          	  <th>户型</th>
+          	  <td><a href="#">不限</a></td>
+          	  <td><a href="#">名居</a></td>
+          	  <td><a href="#">公寓</a></td>
+          	  <td><a href="#">独栋别墅</a></td>
+          	  <td><a href="#">客栈</a></td>
+          	  <td><a href="#">阁楼</a></td>
+          	  <td><a href="#">居民房</a></td>
+          	  <td><a href="#">林间小屋</a></td>
+          	  <td><a href="#">豪宅</a></td>
+          	  <td><a href="#">树屋</a></td>
+          	  <td><a href="#">老洋房</a></td>
+          	</tr>
+
+          </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 房源展示 -->
+  <section class="container" id="rooms-recommend">
+    <div class="section-title">
+      <div>
+        <span>房源展示</span>
+      </div>
+     
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/1.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>地理位置便利，私家花园套房级...</h4>
+              <p><span class="badge">5.0分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/2.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>衡复文化区独门花园Loft古典...</h4>
+              <p><span class="badge">4.9分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/3.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>地理位置便利，私家花园套房级...</h4>
+              <p><span class="badge">4.8分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/4.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>二环内黄金地段，独立地铁口公寓...</h4>
+              <p><span class="badge">4.7分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/5.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>西湖之巅，零距离湖景房...</h4>
+              <p><span class="badge">5.0分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/6.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>位于苍山脚下的洱海全景阳台房...</h4>
+              <p><span class="badge">4.6分</span><small>独立房间</small><small>1室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+                <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/7.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>地理位置便利，私家花园套房级...</h4>
+              <p><span class="badge">5.0分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/8.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>衡复文化区独门花园Loft古典...</h4>
+              <p><span class="badge">4.9分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <a href="#" class="">
+              <img src="../static/images/homepage/9.jpg" alt="...">
+            </a>
+            <div class="room-price"><span>￥89</span>
+            </div>
+            <div class="caption">
+              <h4>地理位置便利，私家花园套房级...</h4>
+              <p><span class="badge">4.8分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </section>
+  <!-- 分页 -->
+  
+  <div style="width:100%; height:34px; margin:30px 38% 60px" >
+		<div id="pagination"></div>
+	</div>
+	
+  <!-- 页脚 -->
+  <footer class="container-fluid" id="footer">
+  	<div class="container">
+      <div class="row">
+	  	  <div class="col-xs-4 col-md-2">
+	  	  	<h3><a href="#">关于我们</a></h3>
+	  	  	<div class="text-left">
+	  	  	  <p><a href="#">了解我们</a></p>
+	  	  	  <p><a href="#">加入我们</a></p>
+	  	  	</div>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2">
+	  	  	<h3><a href="#">网站协议</a></h3>
+	  	  	<div class="text-left">
+	  	  	  <p><a href="#">房客指南</a></p>
+	  	  	  <p><a href="#">房东指南</a></p>
+	  	  	  <p><a href="#">服务协议</a></p>
+	  	  	</div>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2 ">
+	  	  	<h3><a href="#">联系客服</a></h3>
+	  	  	<div class="text-left">
+	  	  	  <p><a href="#">电话<br/>400-010-7890</a></p>
+	  	  	  <p><a href="#">邮箱<br/>service@re.com</a></p>
+	  	  	</div>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2 col-md-offset-2 " style="padding-top: 20px;">
+	  	  	<img src="../static/images/homepage/u109.png" alt="">
+	  	  	<p>下载APP</p>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2" style="padding-top: 20px;">
+	  	  	<img src="../static/images/homepage/u109.png" alt="">
+	  	  	<p>关注微信公众号</p>
+	  	  </div>
+	  	</div>
+		</div>
+  </footer>
+<script>
+				$(function() {
+
+				$("#pagination").pagination({
+					currentPage: 1,
+					totalPage: 16,
+					isShow: true,
+					count: 7,
+					homePageText: "首页",
+					endPageText: "尾页",
+					prevPageText: "上一页",
+					nextPageText: "下一页",
+					callback: function(current) {
+						$("#current3").text(current)
+					}
+				});
+
+			});
+</script>
+</body>
+</html>

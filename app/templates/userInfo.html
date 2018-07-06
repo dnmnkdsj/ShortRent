@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="UTF-8">
+	<title>账户管理</title>
+	<link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<style>
+.container>p {
+	margin-top: 20px;
+  margin-bottom: 20px;
+}
+#message>p {
+  position: relative;
+  z-index: 1000;
+	width: 100px;
+  border: 1px solid black;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-bottom: none;
+  background: white;
+}
+.chat-room {
+	position: relative;
+ 	top: -1px;
+	border: 1px solid black;
+  padding: 10px;
+  height: 120px;
+  overflow: auto;
+}
+.chat-room img {
+	display: block;
+  float: left;
+}
+.chat-room>div {
+  width: 80%;
+  margin-left: 100px;
+}
+.message-list {
+	text-align: center;
+}
+.message-list>a {
+	margin-bottom: 10px;
+}
+.message-list>a:hover {
+	border-color: red;
+}
+.message-list>a>span {
+	margin-right: 10px;
+}
+</style>
+<body>
+<!------- 页头部分 ------>
+	
+<!-------- 内容部分---- -->
+	<section class="container">
+	  <p>&gt;&gt;账户管理</p>
+	  <div class="row">
+	  	<div class="col-xs-4 col-md-2 col-md-offset-1 message-list">
+	  		<a href="userinfo.html" class="btn btn-default btn-lg active">
+	  		  <span class="glyphicon glyphicon-user"></span>账户管理
+	  		</a>
+	  		<a href="myOrder.html" class="btn btn-default btn-lg">
+	  		  <span class="glyphicon glyphicon-file"></span>我的订单
+	  		</a>
+	  		<a href="myHouse.html" class="btn btn-default btn-lg">
+	  		  <span class="glyphicon glyphicon-home"></span>我的房屋
+	  		</a>
+	  	</div>
+	  	<div class="col-xs-6 col-md-8" id="">
+	  	  <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 30px">
+          <li role="presentation" class="active">
+            <a href="#personal-info" aria-controls="personal-info" role="tab" data-toggle="tab">个人信息</a>
+          </li>
+          <li role="presentation">
+            <a href="#password-set" aria-controls="password-set" role="tab" data-toggle="tab">修改密码</a>
+          </li>
+        </ul>
+			  <div class="tab-content">
+			    <div role="tabpanel" class="tab-pane  fade in active" id="personal-info">
+			      <div class="col-md-2">
+			      	<img src="../static/images/userinfo/u2330.png" style="width: 90px;height: 60px" alt="">
+			      </div>
+			      <div class="col-md-10">
+			      	<div class="form-group">
+		            <label for="username" class="control-label">用户名：<span>123456</span></label>
+							</div>
+							<div class="form-group">
+		            <label for="" class="control-label">个人评价：<span>5.0</span></label>
+							</div>
+							<div class="form-group">
+		            <label for="email" class="control-label">邮箱：<span>123456@163.com</span></label>
+							</div>
+			      </div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane fade" id="password-set">
+			      <form action="" class="form-horizontal">
+							<div class="form-group">
+		            <label for="password-old" class="control-label">原密码：</label>
+					  		<input type="password" class="form-control" id="password-old" placeholder="">
+							</div>
+							<div class="form-group">
+		            <label for="password-new" class="control-label">新密码：</label>
+					  		<input type="password" class="form-control" id="password-new" placeholder="">
+							</div>							
+							<div class="form-group">
+		          	<label for="password-agin" class="control-label">确认密码：</label>
+					  		<input type="password" class="form-control" id="password-agin" placeholder="再次输入密码">
+							</div>
+							<div class="form-group">
+					   		<button type="submit" class="btn btn-success btn-lg save-btn" >保存</button>
+							</div>
+			      </form>
+			    </div>
+
+			  </div>
+	  	</div>
+	  </div>
+	</section>
+<!------页脚部分 ------>
+
+  <script>
+  </script>
+</body>
+</html>

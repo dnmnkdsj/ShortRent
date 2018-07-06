@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="UTF-8">
+	<title>房源详情</title>
+	<link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/houseDetails.css">
+	<script src="../static/js/jquery.min.js"></script>
+  <script src="../static/js/jquery.flexisel.js"></script>
+	<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- 导航栏 -->
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" id="header">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="color: white">短租网</a>
+      </div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">首页</a></li>
+          <li><a href="#">登陆</a></li>
+          <li><a href="#">注册</a></li>
+          <li><a href="#">发布房源</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<div>
+            <input type="text" class="" placeholder="城市或目的地">
+            <button type="button" class="">
+            	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </div>
+				</form>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<!-- 内容部分 -->
+  <section class="container" id="show">
+  	<div id="introduce-pic">
+      <!-- 轮播展示 -->
+      <div id="mycarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#mycarousel" data-slide-to="1"></li>
+          <li data-target="#mycarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="../static/images/homepage/1.jpg" alt="...">
+          </div>
+          <div class="item">
+            <img src="../static/images/homepage/2.jpg" alt="...">
+          </div>
+          <div class="item">
+            <img src="../static/images/homepage/3.jpg" alt="...">
+          </div>
+        </div>
+        <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+  	  <!-- 侧边栏预订框 -->
+      <aside>
+  	    <div class="title">
+  	      <h3>￥56/晚</h3>
+  	      </div>
+  	    <div class="form-group" style="text-align: center;">
+  	      <input type="date" class="form-control" style="width: 40%;">至
+  	      <input type="date" class="form-control" style="width: 40%;">
+        </div>
+        <p>总计<span>￥56</span></p>
+        <button class="btn btn-default btn-lg" id="btn-book">立即预订</button>
+        <!-- <div class="aside-footer">
+          <a href="#" class="collect">
+            <small>收藏</small>
+          </a>
+          <a href="#" class="">分享</a>
+        </div> -->
+  	  </aside>
+  	</div>
+  </section>
+  <article class="container">
+  	<div>
+      <h3 style="margin-bottom: 20px;width: 95%"><span class="badge">4.8分</span>我是标题</h3>
+      
+  	  <div class="title">
+  	  	<h3>房源简介</h3>
+  	  </div>
+  	  <div class="content">
+  	  	<p>
+        我是简介
+        </p>
+  	  </div>
+  	</div>
+  	<div class="rooms-info">
+  	  <div class="title">
+  	  	<h3>房源详情</h3>
+  	  </div>
+	  <div class="content">
+	  	<table class="table table-condensed">
+  	  	  <tbody>
+  	  	    <tr>
+  	  	      <td>房源类型：公寓</td>
+  	  	      <td>卫生间：公共*1</td>
+  	  	      <td>被单更换：每客一换</td>
+  	  	    </tr>
+  	  	    
+  	  	  </tbody>
+	    </table>
+	  </div>
+  	</div>
+  	<div class="facilities">
+  	  <div class="title">
+  	  	<h3>配套设施</h3>
+  	  </div>
+  	  <div class="content">
+  	  	<table class="table table-condensed">
+  	  	  <tbody>
+  	  	    <tr>
+  	  	      <td>无线WIFI</td>
+  	  	      <td>空调(卧室全有 客厅有)</td>
+  	  	      <td>电视</td>
+  	  	    </tr>
+  	  	    <tr>
+  	  	      <td>有线网络</td>
+  	  	      <td>暖气</td>
+  	  	      <td>电脑</td>
+  	  	    </tr>
+  	  	    <tr>
+  	  	      <td>电梯</td>
+  	  	      <td>冰箱</td>
+  	  	      <td>饮水机</td>
+  	  	    </tr>
+  	  	    <tr>
+  	  	      <td>停车位：30元/天</td>
+  	  	      <td>洗衣机</td>
+  	  	      <td>淋浴</td>
+  	  	    </tr>
+  	  	    <tr>
+  	  	      <td>24小时热水</td>
+  	  	      <td>浴缸</td>
+  	  	      <td></td>
+  	  	    </tr>
+  	  	  </tbody>
+	  </table>
+  	  </div>
+  	</div>
+  	<div class="charge">
+  	  <div class="title">
+  	  	<h3>收费说明</h3>
+  	  </div>
+  	  <div class="content">
+  	  	<p>预付订金：100%，提交订单后，支付总房费的100%作为预付订金交付平台</p>
+        <p>退订政策：不支持退款</p>
+        <p>入住日前1天18:00之前如取消订单,全额退款</p>
+        <p>入住日当天18:00前如取消订单，扣除第一天房费</p>
+        <p>退房时间为当天12:00，如提前退房，18：00之前取消订单，扣除当天房费；18：00之后取消订单，扣除当天及次日房费 </p>
+        <div class="content">
+          <p><strong>以下费用由房东线下额外收取，不包含在房费中。</strong></p>
+          <p><strong>押金：</strong>400元</p>
+          <p><strong>加床：</strong>80元/人/天 </p>
+          <p><strong>做饭：</strong>不收费</p>
+          <p><strong>清洁费：</strong>不收取（清洁费通常由房东一次性收取。如果入住过程中需要清扫产生额外费用，请参考房东相关规定）</p>
+          <p><strong>停车位：</strong>30元/天</p>
+        </div>
+        <p><strong>温馨提示：房东提供的服务可能会收费，不在以上费用中。请谨慎核对，以免发生纠纷。</strong></p>
+  	  </div>
+  	</div>
+  	<div class="notice">
+  	  <div class="title">
+  	  	<h3>入住须知</h3>
+  	  </div>
+  	  <div class="content">
+  	  	<p>接待时间：全天</p>
+        <p>最少入住：1天</p>
+        <p>退房时间：12:00以前</p>
+        <p>最多入住：天数不限</p>
+        <p>入住时间：14:00以后 </p>
+        <p>发票：提供</p>
+        <p>外宾接待：接待</p>
+  	  </div>
+  	</div>
+  	<div>
+  	  <div class="title">
+  	  	<h3>其他房源推荐</h3>
+  	  </div>
+      <div class="container">
+        <div class="other">
+          <div class="content-bottom-in">
+            <ul id="myFlexisel">     
+              <li>
+                <div class="homelist">
+                <a href="#"><img src="../static/images/houseDetails/1.jpg" alt="" /></a>
+                <div style="padding: 0.5em 0em">
+                  <div style="padding: 0 1em 0.5em">
+                    <span class="fur-money">￥200/晚</span>
+                    <h6 class="fur-name"><a href="#">标题</a></h6>
+                  </div>
+                </div>  
+                </div>
+              </li>
+              <li>
+                <div class="homelist">
+                <a href="#"><img src="../static/images/houseDetails/2.jpg" alt="" /></a>
+                <div style="padding: 0.5em 0em">
+                  <div style="padding: 0 1em 0.5em">
+                    <span class="fur-money">￥200/晚</span>
+                    <h6 class="fur-name"><a href="#">标题</a></h6>
+                  </div>
+                </div>
+                </div>
+              </li>
+              <li>
+                <div class="homelist">
+                <a href="#"><img src="../static/images/houseDetails/3.jpg" alt="" /></a>
+                <div style="padding: 0.5em 0em">
+                  <div style="padding: 0 1em 0.5em">
+                    <span class="fur-money">￥200/晚</span>
+                    <h6 class="fur-name"><a href="#">标题</a></h6>
+                  </div>
+                </div>
+                </div>
+              </li>
+              <li>
+                <div class="homelist">
+                <a href="#"><img src="../static/images/houseDetails/4.jpg" alt="" /></a>
+                <div style="padding: 0.5em 0em">
+                  <div style="padding: 0 1em 0.5em">
+                    <span class="fur-money">￥200/晚</span>
+                    <h6 class="fur-name"><a href="#">标题</a></h6>
+                  </div>
+                </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  	</div>
+  </article>
+  <!--页脚部分 -->
+	<footer class="container-fluid" id="footer">
+  	<div class="container">
+      <div class="row">
+	  	  <div class="col-xs-4 col-md-2">
+	  	  	<h3><a href="#">关于我们</a></h3>
+	  	  	<div class="text-left">
+	  	  	  <p><a href="#">了解我们</a></p>
+	  	  	  <p><a href="#">加入我们</a></p>
+	  	  	</div>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2">
+	  	  	<h3><a href="#">网站协议</a></h3>
+	  	  	<div class="text-left">
+	  	  	  <p><a href="#">房客指南</a></p>
+	  	  	  <p><a href="#">房东指南</a></p>
+	  	  	  <p><a href="#">服务协议</a></p>
+	  	  	</div>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2 ">
+	  	  	<h3><a href="#">联系客服</a></h3>
+	  	  	<div class="text-left">
+	  	  	  <p><a href="#">电话<br/>400-010-7890</a></p>
+	  	  	  <p><a href="#">邮箱<br/>service@re.com</a></p>
+	  	  	</div>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2 col-md-offset-2 " style="padding-top: 20px;">
+	  	  	<img src="../static/images/homepage/u109.png" alt="">
+	  	  	<p>下载APP</p>
+	  	  </div>
+	  	  <div class="col-xs-4 col-md-2" style="padding-top: 20px;">
+	  	  	<img src="../static/images/homepage/u109.png" alt="">
+	  	  	<p>关注微信公众号</p>
+	  	  </div>
+	  	</div>
+  <script>
+    $('.carousel').carousel({
+      interval: false
+  });
+  </script>
+  <script>
+    $(window).load(function() {
+      $("#myFlexisel").flexisel({
+        visibleItems: 4,
+        animationSpeed: 1000,
+        autoPlay: true,
+        autoPlaySpeed: 3000,        
+        pauseOnHover: true,
+        enableResponsiveBreakpoints: true,
+        responsiveBreakpoints: { 
+          portrait: { 
+            changePoint:480,
+            visibleItems: 1
+          }, 
+          landscape: { 
+            changePoint:640,
+            visibleItems: 2
+          },
+          tablet: { 
+            changePoint:768,
+            visibleItems: 3
+          }
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
