@@ -1,57 +1,71 @@
 /*解决modal弹出时页面挪动的问题*/
- #model-reg{
 
-   overflow-y:scroll;          
-   padding-right:0  !important;
-}
- #model-login{
+/*#model-reg {
 
-   overflow-y:scroll;          
-   padding-right:0  !important;
+    overflow-y: scroll;
+    padding-right: 0 !important;
 }
+
+#model-login {
+
+    overflow-y: scroll;
+    padding-right: 0 !important;
+}*/
+
 
 /***********全局**************/
+
 body {
-  font-size: 16px;
-  color: black;
-  font-family: 'Arial Normal', 'Arial';
-  font-style: normal;
-  min-width: 1256px;
-}
- a {
-	color: black;
-} 
-a:hover {
-	text-decoration: none;
+    font-size: 16px;
+    color: black;
+    font-family: 'Arial Normal', 'Arial';
+    font-style: normal;
+    min-width: 1256px;
 }
 
-/******** 导航栏 ************/
-#header {
-  padding-top: 10px;
-  padding-bottom: 10px;
+a {
+    color: black;
 }
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/******** 导航栏 ************/
+
+#header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 #header .header-image {
     padding-left: 20px;
     padding-right: 15px;
     height: 50px;
 }
+
 .mynav {
-  padding: 10px 30px;
+    padding: 10px 30px;
 }
+
 .mynav>div {
-  width: 45%;
-  float: left;
+    width: 45%;
+    float: left;
 }
+
 .mynav>div>input {
-  padding-bottom: 4px;
-  padding-top: 2px;
-  height: 36px;
+    padding-bottom: 4px;
+    padding-top: 2px;
+    height: 36px;
 }
- .mynav button {
-  padding-bottom: 2px;
-  padding-top: 2px;
-  height: 36px;
+
+.mynav button {
+    padding-bottom: 2px;
+    padding-top: 2px;
+    height: 36px;
 }
+
 .mynav ul {
     list-style: none;
     width: 50%;
@@ -60,26 +74,32 @@ a:hover {
     margin-bottom: 7px;
     margin-top: 7px;
 }
+
 .mynav ul li {
-  float: left;
-  padding-left: 10px;
-  padding-right: 20px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 20px;
 }
- .header-phone {
-  padding: 15px 20px 10px 30px;
-  border-left: 1px solid #A7DCCA;
-  height: 50px;
+
+.header-phone {
+    padding: 15px 20px 10px 30px;
+    border-left: 1px solid #A7DCCA;
+    height: 50px;
 }
+
 
 
 /**********内容部分************/
+
 section {
-	position: relative;
+    position: relative;
 }
- .carousel-inner {
-	margin: 0 auto;
+
+.carousel-inner {
+    margin: 0 auto;
     width: 100%;
 }
+
 .carousel-control {
     position: absolute;
     top: 0;
@@ -89,65 +109,77 @@ section {
     font-size: 20px;
     color: #fff;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0,0,0,.6);
-    background-color: rgba(0,0,0,0);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, 0);
     opacity: .5;
 }
+
 .carousel-inner>.item>img {
     line-height: 1;
     width: 100%;
 }
+
 .carousel-text {
-	width: 30%;
+    width: 30%;
     position: absolute;
     top: 80%;
     left: 36%;
 }
+
 .carousel-text input[type="text"] {
-	width: 53%;
+    width: 53%;
 }
+
 .carousel-text input[type="date"] {
-	width: 45%;
-	margin-left: -4px;
+    width: 45%;
+    margin-left: -4px;
 }
+
 .carousel-text button {
-	margin-left: -10px;
+    margin-left: -10px;
 }
 
 #cities， #stars {
-  position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
+
 #stars h4 {
-	text-align: center;
+    text-align: center;
 }
+
 .section-title {
- 	padding-top: 10px;
+    padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
 }
+
 .section-title div {
-  width: 30%;
-  margin: 0 auto;
-  background-color: white;
+    width: 30%;
+    margin: 0 auto;
+    background-color: white;
 }
+
 .section-title span {
-  font-weight: 400; */
-  font-style: normal;
-  font-size: 36px;
+    font-weight: 400;
+    */ font-style: normal;
+    font-size: 36px;
 }
+
 small {
- 	padding-left: 10px;
+    padding-left: 10px;
 }
+
 #rooms-recommend .content p {
- 	display: inline;
+    display: inline;
 }
+
 .room-price {
     position: absolute;
     width: 25%;
     text-align: center;
-    background-color: #000;     
+    background-color: #000;
     color: white;
     opacity: .7;
     padding-top: 8px;
@@ -155,55 +187,68 @@ small {
     border: 1px solid transparent;
     border-radius: 5px;
 }
+
 #rooms-recommend .content .room-price {
     left: 273px;
     top: 220px;
 }
+
 #rooms-recommend .content a {
- 	margin-left: 10px;
+    margin-left: 10px;
 }
 
 #rooms-recommend .content h4 {
-  position: relative;
-  top:-20px;
+    position: relative;
+    top: -20px;
 }
-.badge{
-  background-color: #faa43d;
+
+.badge {
+    background-color: #faa43d;
 }
+
 .favour-logo {
-	position: absolute;
-  cursor: pointer;
-} 
-#rooms-recommend .content .favour-logo {
-  top: 10px;
-  left: 335px;
+    position: absolute;
+    cursor: pointer;
 }
+
+#rooms-recommend .content .favour-logo {
+    top: 10px;
+    left: 335px;
+}
+
 
 
 /***********页脚************/
+
 #footer {
-	background-color: #333333;
-	margin-top: 20px;
-	padding-bottom: 50px;
-	text-align: center;
+    background-color: #333333;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    text-align: center;
 }
+
 #footer h3 {
     margin-bottom: 20px;
 }
-#footer  a {
-	 color: white;
+
+#footer a {
+    color: white;
 }
+
 #footer .nav>li>a:hover {
-  color: yellow;
-  background-color: inherit;
+    color: yellow;
+    background-color: inherit;
 }
+
 #footer .text-left {
-	padding-left: 35px;
+    padding-left: 35px;
 }
+
 #footer p {
-	margin-top: 10px;
-	color: white;
+    margin-top: 10px;
+    color: white;
 }
+
 #footer .navbar {
 
     margin-top: 20px;
@@ -211,27 +256,33 @@ small {
 
 
 
-/*********登录/注册模态框***********/
-.modal-header {
+
+/*********登录/注册***********/
+
+/*.modal-header {
     border-bottom: none;
 }
+
 .modal-dialog {
     width: 550px;
     margin: 10 auto 0 auto;
 }
+
 .modal-body {
     padding: 0em 4em 4em;
-}
+}*/
 
-.login-right h3{
-    
+.login-right h3 {
+
     font-size: 2.5em;
     text-transform: capitalize;
     text-align: center;
     font-family: 'Righteous', cursive;
     color: #faa43d;
 }
-.login-right input[type="text"] ,.login-right input[type="password"] {
+
+.login-right input[type="text"],
+.login-right input[type="password"] {
     width: 100%;
     padding: 10px;
     font-weight: normal;
@@ -240,186 +291,213 @@ small {
     outline: none;
     font-size: 14px;
     margin-top: 20px;
-   font-family: 'Montserrat', sans-serif;
-}
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{/* WebKit browsers */
-  color:#D2D1D1;
-}
-input:-moz-placeholder, textarea:-moz-placeholder{/* Mozilla Firefox 4 to 18 */
-  color:#D2D1D1;
-}
-input::-moz-placeholder, textarea::-moz-placeholder{/* Mozilla Firefox 19+ */
-  color:#D2D1D1;
-}
-input:-ms-input-placeholder, textarea:-ms-input-placeholder{/* Internet Explorer 10+ */
-  color:#D2D1D1;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.login-right h4{
-	color:#C53743;
-	font-size:12px;
-	margin:20px 0;
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #D2D1D1;
 }
-.login-right h4 a{
-	color:#faa43d;
-	text-decoration:none;
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #D2D1D1;
 }
-.login-right h4 a:hover{
-	color:#faa43d;
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #D2D1D1;
 }
-.login-right input[id="btn-reg"],input[id="btn-login"]{
-  background:#2da9e1;
-  color: #fff;
-  font-size: 1.5em;
-  border: none;
-  width: 100%;
-  outline: none;
-  -webkit-appearance:none;
-  padding: .5em 0;
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  margin-top: .5em;
-  font-family: 'PT Sans', sans-serif;
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #D2D1D1;
 }
-.login-right input[id="btn-reg"]:hover,input[id="btn-login"]:hover {
-	background:#faa43d;
+
+.login-right h4 {
+    color: #C53743;
+    font-size: 12px;
+    margin: 20px 0;
 }
+
+.login-right h4 a {
+    color: #faa43d;
+    text-decoration: none;
+}
+
+.login-right h4 a:hover {
+    color: #faa43d;
+}
+
+.login-right input[id="btn-reg"],
+input[id="btn-login"] {
+    background: #2da9e1;
+    color: #fff;
+    font-size: 1.5em;
+    border: none;
+    width: 100%;
+    outline: none;
+    -webkit-appearance: none;
+    padding: .5em 0;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    margin-top: .5em;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.login-right input[id="btn-reg"]:hover,
+input[id="btn-login"]:hover {
+    background: #faa43d;
+}
+
 .login-grids p {
     font-size: 12px;
     margin-top: 25px;
-	color:#A9A8A8;
-	padding-top: 10px;
+    color: #A9A8A8;
+    padding-top: 10px;
 }
-.login-grids p a{
-	color:#faa43d;
-	text-decoration:none;	
+
+.login-grids p a {
+    color: #faa43d;
+    text-decoration: none;
 }
+
 .modal-header .close {
     outline: none;
 }
+
 #msg {
-  width: 100%;
-  line-height: 40px;
-  font-size: 14px;
-  text-align: center;
+    width: 100%;
+    line-height: 40px;
+    font-size: 14px;
+    text-align: center;
 }
 
+
 /*******登录拼图验证码*********/
+
 .block {
-  position: absolute;
-  left: 0;
-  top: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .sliderContainer {
-  position: relative;
-  text-align: center;
-  width: 310px;
-  height: 40px;
-  line-height: 40px;
-  margin-top: 15px;
-  background: #f7f9fa;
-  color: #45494c;
-  border: 1px solid #e4e7eb;
+    position: relative;
+    text-align: center;
+    width: 310px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    background: #f7f9fa;
+    color: #45494c;
+    border: 1px solid #e4e7eb;
 }
 
 .sliderContainer_active .slider {
-  height: 38px;
-  top: -1px;
-  border: 1px solid #1991FA;
+    height: 38px;
+    top: -1px;
+    border: 1px solid #1991FA;
 }
 
 .sliderContainer_active .sliderMask {
-  height: 38px;
-  border-width: 1px;
+    height: 38px;
+    border-width: 1px;
 }
 
 .sliderContainer_success .slider {
-  height: 38px;
-  top: -1px;
-  border: 1px solid #52CCBA;
-  background-color: #52CCBA !important;
+    height: 38px;
+    top: -1px;
+    border: 1px solid #52CCBA;
+    background-color: #52CCBA !important;
 }
 
 .sliderContainer_success .sliderMask {
-  height: 38px;
-  border: 1px solid #52CCBA;
-  background-color: #D2F4EF;
+    height: 38px;
+    border: 1px solid #52CCBA;
+    background-color: #D2F4EF;
 }
 
 .sliderContainer_success .sliderIcon {
-  background-position: 0 0 !important;
+    background-position: 0 0 !important;
 }
 
 .sliderContainer_fail .slider {
-  height: 38px;
-  top: -1px;
-  border: 1px solid #f57a7a;
-  background-color: #f57a7a !important;
+    height: 38px;
+    top: -1px;
+    border: 1px solid #f57a7a;
+    background-color: #f57a7a !important;
 }
 
 .sliderContainer_fail .sliderMask {
-  height: 38px;
-  border: 1px solid #f57a7a;
-  background-color: #fce1e1;
+    height: 38px;
+    border: 1px solid #f57a7a;
+    background-color: #fce1e1;
 }
 
 .sliderContainer_fail .sliderIcon {
-  top: 14px;
-  background-position: 0 -82px !important;
+    top: 14px;
+    background-position: 0 -82px !important;
 }
-.sliderContainer_active .sliderText, .sliderContainer_success .sliderText, .sliderContainer_fail .sliderText {
-  display: none;
+
+.sliderContainer_active .sliderText,
+.sliderContainer_success .sliderText,
+.sliderContainer_fail .sliderText {
+    display: none;
 }
 
 .sliderMask {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 40px;
-  border: 0 solid #1991FA;
-  background: #D1E9FE;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 40px;
+    border: 0 solid #1991FA;
+    background: #D1E9FE;
 }
 
 .slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: background .2s linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background .2s linear;
 }
 
 .slider:hover {
-  background: #1991FA;
+    background: #1991FA;
 }
 
 .slider:hover .sliderIcon {
-  background-position: 0 -13px;
+    background-position: 0 -13px;
 }
 
 .sliderIcon {
-  position: absolute;
-  top: 15px;
-  left: 13px;
-  width: 14px;
-  height: 12px;
-  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -26px;
-  background-size: 34px 471px;
+    position: absolute;
+    top: 15px;
+    left: 13px;
+    width: 14px;
+    height: 12px;
+    background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -26px;
+    background-size: 34px 471px;
 }
 
 .refreshIcon {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -437px;
-  background-size: 34px 471px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -437px;
+    background-size: 34px 471px;
 }

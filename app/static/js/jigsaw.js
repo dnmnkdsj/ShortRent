@@ -82,7 +82,6 @@
     }
 
     init() {
-      alert('2')
       this.initDOM()
       this.initImg()
       this.draw()
