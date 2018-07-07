@@ -22,7 +22,7 @@ class DevelopmentConfig(Config):
     MAIL_PORT = 25
     MAIL_USE_SSL = False
     MAIL_USERNAME = 'hx763479239@163.com'
-    MAIL_PASSWORD = 'hx763479239hx'
+    MAIL_PASSWORD = 'hx763479239hx1'
 
     """Debug setting"""
     DEBUG = True
