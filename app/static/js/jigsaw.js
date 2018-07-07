@@ -21,7 +21,7 @@
     const img = createElement('img')
     img.crossOrigin = "Anonymous"
     img.onload = onload
-    img.onerror = () => {
+    img.onerror = ()=> {
       img.src = getRandomImg()
     }
     img.src = getRandomImg()
@@ -82,6 +82,7 @@
     }
 
     init() {
+      alert('2')
       this.initDOM()
       this.initImg()
       this.draw()

@@ -18,17 +18,14 @@ class DevelopmentConfig(Config):
     """
     Mail server settings
     """
-    MAIL_SERVER = 'smtp.126.com',
-    MAIL_PORT = 465,  # this port number should be 465 which is encoded, not what 163.com says 25.
-    MAIL_USE_TLS = False,
-    MAIL_USE_SSL = True,
-    MAIL_USERNAME = 'hydroxyapatite@126.com',
-    MAIL_PASSWORD = 'hyperoxygen0',
-    MAIL_SENDER = 'hydroxyapatite@126.com',
-    MAIL_DEFAULT_SENDER = 'hydroxyapatite@126.com'
+    MAIL_SERVER = 'smtp.163.com'
+    MAIL_PORT = 25
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = 'hx763479239@163.com'
+    MAIL_PASSWORD = 'hx763479239hx'
+
     """Debug setting"""
     DEBUG = True
-
 
 
 class ReleaseConfig(Config):

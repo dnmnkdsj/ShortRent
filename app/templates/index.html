@@ -313,7 +313,8 @@
   </footer>
 
 <script>
-	//拼图验证码
+
+  // 拼图验证码
   jigsaw.init({
     el: document.getElementById('captcha'),
     onSuccess: function() {
@@ -326,7 +327,6 @@
   function cleanMsg() {
     document.getElementById('msg').innerHTML = '';
   }
-
   // 轮播图速度
   $('.carousel').carousel({
   	interval: 2500,
@@ -351,12 +351,6 @@
 
 	//注册请求
 	$("#btn-reg").click(function(){
-		var pwd1 = $("#pwd1").val();
-		var pwd2 = $("#pwd2").val();
-		if(pwd1 != pwd2){
-			$("#tips").text("两次密码不一致，请重新输入");
-		}
-		else{
 			$.ajax({
 				type:'POST',
 				url:'/users/register',
@@ -369,42 +363,30 @@
 				success:function(data){
 					alert("提交成功");
 					console.log(data);
-				}
+				},
+				error:function(){
+				    alert("error")
+                }
 			});
 
-		}
+
 	});
 
-	//登陆请求
-	$("#btn-login").click(function(){
 
-		$.ajax({
-			type:'POST',
-			url:'/users/login',
-			data:{
-				mail:loginData.mail,
-				password:loginData.password,
-				remember:loginData.remember
-			},
-			dataType:'json',
-			success:function(data){
-				console.log(data);
-			}
+			$.ajax({
+				type:'POST',
+				url:'/users/login',
+				data:{
+					mail:loginData.mail,
+					password:loginData.password,
+					remember:loginData.remember
+				},
+				dataType:'json',
+				success:function(data){
+					console.log(data);
+				}
+			});
 		});
-	});
-	//搜索请求
-	$("#btn-search").click(function(){
-		$.ajax({
-			type:'GET',
-			url:'app/houses/house_infopage',
-			dataType:'json',
-			success:function(data){
-				console.log(data);
-				//跳转到搜索后的界面并传入搜索关键字
-				//window.location.href="data?keyword="+$("#keyword").val();
-			}
-		});		
-	});
 </script>
 
 </body>
