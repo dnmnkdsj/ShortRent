@@ -1,0 +1,208 @@
+#show{
+    position: relative;
+    top:70px;
+    margin-bottom: 50px;
+}
+#mycarousel{
+    height: 400px;  
+}
+.carousel-inner {
+    margin: 0 auto;
+    height: 100%;
+}
+.carousel-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8%;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    background-color: rgba(0,0,0,0);
+    opacity: .5;
+}
+#introduce-pic {
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#introduce-pic:first-child {
+	width: 70%;
+    padding: 5px;
+    border: 1px solid #CDEBE0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#introduce-pic aside {
+    position: fixed;
+    top: 90px;
+    left: 68%;
+	width: 23%;
+    background-color: #ECFFFF;
+    box-shadow: 1px 3px 3px #787878;
+    
+    z-index: 100;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#introduce-pic aside>p {
+	margin-top: 10px;
+}
+#introduce-pic aside .title {
+	border-bottom: 1px solid #CDEBE0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#introduce-pic aside h3 {
+	text-align: left;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+#introduce-pic aside .title small {
+	display: block;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    text-align: right;
+}
+#introduce-pic aside .form-group {
+	margin-top: 15px;
+}
+#introduce-pic aside .form-control {
+	width: 36%;
+	display: inline;
+}
+#btn-book {
+	width: 150px;
+    margin: 20px 0;
+    background:#2da9e1;
+    color: #fff;
+    font-size: 1em;
+    border: none;
+    outline: none;
+    -webkit-appearance:none;
+    padding: .5em 0;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    margin-top: .5em;
+    font-family: 'PT Sans', sans-serif;
+}
+#btn-book:hover{
+    background:#faa43d;
+}
+article>div {
+	width: 72%;
+}
+article>div>.title h3 {
+	display: inline-block;
+    border-left: 5px solid #348365;
+    padding-left: 10px;
+}
+article>div>.title img {
+	width: 75%;
+}
+.table>tbody>tr>td {
+	border-top: none;
+}
+.content {
+	padding-left: 50px;
+    padding-right: 25px;
+    padding-top: 20px;
+}
+.content-item {
+	float: left;
+    width: 32%;
+    text-align: center;
+    margin-top: 15px;
+}
+ .modal{
+    top: 20px;
+}
+#myModal>div {
+    width: 250px;
+    text-align: center;
+}
+
+/*其他房源推荐轮播图*/
+.other {
+  padding: 30px;
+  position: relative;
+  left: -50px; 
+}
+#myFlexisel {
+    display: none;
+}
+#myFlexisel img{
+    width: 100%;
+    height: 50%;
+}
+.homelist{
+    border: 1px solid #CACACA;
+    margin: 0 10px;
+}
+.nbs-flexisel-container {
+    position: relative;
+    max-width: 100%;
+}
+.nbs-flexisel-ul {
+    position: relative;
+    width: 9999px;
+    list-style-type: none;
+}
+.nbs-flexisel-inner {
+    overflow: hidden;
+    width:90%;
+    margin: 0 auto;
+}
+.nbs-flexisel-item {
+    float: left;
+    position: relative;
+    line-height: 0px;
+}
+.nbs-flexisel-item > img {
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    position: relative; 
+}
+.nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
+    width:32px;
+    height:32px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+}
+.nbs-flexisel-nav-left {
+    left: 0px;
+    background: url(../images/房源详情/img-sprite.png) no-repeat -130px 0px;
+}
+.nbs-flexisel-nav-right {
+    right: 0px;
+    background: url(../images/房源详情/img-sprite.png) no-repeat -153px 0px ;
+}
+
+.fur-money{
+    color:#000;
+    font-size: 0.8em;
+    color:#000;
+    display: block;
+    line-height: 1.5em;
+    padding: 0.2em 0;
+}
+.fur-name{
+    color:#27da93;
+    font-size: 1em;
+    margin: 0.3em 0;
+}
+.furname a{
+    color:#27da93;
+    text-decoration: none;
+}
+.furname a:hover{
+    color:#000;
+}
