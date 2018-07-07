@@ -33,5 +33,5 @@ bool: 布尔值. 数据库内类型为int.
     * house: str: 关联房屋的id [一个订单有且仅有一个房屋]
     * customer_ranked: str: 发起人(租用者)是否已评分
     * owner_ranked: str: 承接人(房屋持有人)是否已评分
-    * passed: bool: 审核状态 [true: 审核通过. false: 审核未通过]
-    * done: bool: 交易状态 [true: 交易完成. false: 审核完毕, 交易中]
+    * passed: bool: 订单确认状态 [1: 已确认. 0: 未确认]
+    * done: bool: 交易状态 [1: 交易完成. 0: 审核完毕, 交易中]

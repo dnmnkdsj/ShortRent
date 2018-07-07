@@ -29,12 +29,6 @@ class DevelopmentConfig(Config):
     """Debug setting"""
     DEBUG = True
 
-
-<<<<<<< HEAD
-config = {
-    'development': DevelopmentConfig,
-=======
-
 class ReleaseConfig(Config):
     """
     Mail server settings
@@ -50,10 +44,8 @@ class ReleaseConfig(Config):
     """Debug setting"""
     DEBUG = False
 
-
 config = {
     'development': DevelopmentConfig,
     'release': ReleaseConfig,
->>>>>>> 3d3f9a4df9ce0beceb2b4b2931e0c6b8130279d1
     'default': DevelopmentConfig
 }
