@@ -19,12 +19,16 @@ class User(UserMixin):
 	password = ''
 	id = ''
 	valid = ''
+	rank = ''
+	rankTimes = ''
 
-	def __init__(self, name, password, id, valid):
+	def __init__(self, name, password, id, valid, rank, rankTimes):
 		self.name = name
 		self.id = id
 		self.password = password
 		self.valid = valid
+		self.rank = rank
+		self.rankTimes = rankTimes
 
 
 # 检验名字是否存在--注册
@@ -83,15 +87,12 @@ def verify_password(password, mail):
 	return check_password_hash(password_hash[0], password)
 
 
-# 创建用户（可能不需要）
+# 创建用户
 def addUser(name, mail, password_hash):
-	sql = "insert into users (name, mail, password, valid) values ('%s', '%s', '%s',0)" % (name, mail, password_hash)
-	try:
-		getdb().execute(sql)
-		getdb().commit()
-		getdb().close()
-	except:
-		getdb().rollback()
+	sql = "insert into users (name, mail, password, valid, rankTimes, rank) values ('%s', '%s', '%s',0 ,0 ,0)" % (name, mail, password_hash)
+	getdb().execute(sql)
+	getdb().commit()
+
 
 
 # 生成账户激活的token
@@ -150,8 +151,8 @@ def check_reset_token(token):
 
 
 # 获取name, valid
-def get_nv(mail):
-	sql = "select name, valid from users where mail = '%s'" % mail
+def get_nvrr(mail):
+	sql = "select name, valid ,rank ,rankTimes from users where mail = '%s'" % mail
 	result = getdb().execute(sql).fetchone()
 	return result
 

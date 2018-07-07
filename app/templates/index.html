@@ -322,7 +322,8 @@
   </footer>
 
 <script>
-	//拼图验证码
+
+  // 拼图验证码
   jigsaw.init({
     el: document.getElementById('captcha'),
     onSuccess: function() {
@@ -334,7 +335,6 @@
   function cleanMsg() {
     document.getElementById('msg').innerHTML = ''
   }
-
   // 轮播图速度
   $('.carousel').carousel({
   	interval: 2500,
@@ -352,19 +352,13 @@
 		el:'#form-login',
 		data:{
 			mail:'',
-			password:''
+			password:'',
 			remember:''
 		}
 	});
 
 	$("#btn-reg").click(function(){
-		var pwd1 = $("#pwd1").val();
-		var pwd2 = $("#pwd2").val();
-		if(pwd1 != pwd2){
-			$("#tips").text("两次密码不一致，请重新输入");
-			return;
-		}
-		else{
+
 			$.ajax({
 				type:'POST',
 				url:'/users/register',
@@ -372,14 +366,17 @@
 					name:regData.username,
 					mail:regData.mail,
 					password:regData.password
-				}
+				},
 				dataType:'json',
 				success:function(data){
 					console.log(data);
-				}
+				},
+				error:function(){
+				    alert("error")
+                }
 			});
 
-		}
+
 	});
 		$("#btn-login").click(function(){
 
@@ -390,13 +387,14 @@
 					mail:loginData.mail,
 					password:loginData.password,
 					remember:loginData.remember
-				}
+				},
 				dataType:'json',
 				success:function(data){
 					console.log(data);
 				}
 			});
 		});
+
 </script>
 
 </body>
