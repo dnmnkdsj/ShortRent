@@ -15,6 +15,7 @@ null_field = "null_field"
 long_title = "the tile is too long"
 long_description = "the description is too long"
 photos_number_wrong = "the number of photos is unvalid"
+success = "success"
 
 #caculate the length of Chinese
 def str_len(str):
@@ -80,5 +81,5 @@ def publish():
             cur.execute("INSERT INTO houses (?,?,?,?,?,?,?,?,?,?)", info)
             cur.commit()
             cur.close()
-            return jsonify({'status': 1})  # ???
+            return success
         return anonymous

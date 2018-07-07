@@ -21,8 +21,8 @@ def check():
     admin = session.get('admin', 0)
     if admin:
         return render_template("check.html")
-    else:  # 如果不是管理员就把ta赶回首页去
-        return redirect(url_for('home'))
+    else: 
+        return permission_denieds
 
 
 @houses.route('/checkpost/', methods=['GET', 'POST'])

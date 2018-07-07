@@ -12,7 +12,7 @@ from . import houses
 
 @houses.route('/house_infopage/')
 def house_infopage():
-    return render_template('templates/book.html')
+    return render_template('templates/house_info.html')
 
 
 @houses.route('/house_info/<int:house_id>')
