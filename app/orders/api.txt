@@ -1,0 +1,113 @@
+### 订单管理页面
+GET /orders/management
+return
+{
+    : str
+}
+
+### 订单创建页面
+GET /orders/new
+{
+    : str
+}
+
+
+### 订单查看页面
+GET /orders
+{
+    : str
+}
+
+
+### 设置订单是否被确认
+POST /orders/validate?form=true
+{
+    id : str                                 # 订单ID
+    valid : str in ["true", "false"]         # 是否被确认. 设置false的订单会被直接删除.
+}
+return
+{
+    : int               # 操作结果编号
+    : str               # 操作结果描述
+    
+    # 可能的返回值
+    # -1 : 没有权限
+    # 0  : 完成操作. 订单设置为已确认.
+    # 1  : 订单不存在.
+    # 2  : 指定的用户不是订单的承接人.
+    # 3  : 订单已经被确认.
+    # 4  : 同一时段已经有被确认的订单.
+    # 5  : 完成操作. 订单被移除.
+    # 6  : 参数 valid 既不是 "false" 又不是 "true".
+}
+
+
+### 设置完成订单
+POST /orders/validate?form=true
+{
+    id : str        # 订单ID.
+    user : str      # 用户名. 这个参数会用于管理员设置用户的订单完成.
+}
+return
+{
+    : int           # 操作结果编号
+    : str           # 操作结果描述
+    
+    # 可能的返回值
+    # -1 : 没有权限
+    # 0  : 操作成功. 订单已经完成.
+    # 1  : 该订单未被确认.
+    # 2  : 该订单已经完成了.
+}
+
+### 创建订单
+POST /orders/create?form=true
+{
+    user : str                  # 订单创建者id(email). 会被作为订单发起人加入数据库.
+    house : str                 # 房屋编号.
+    value : str                 # 价格.
+    time : str                  # 日期. 格式 'yyyy-mm-dd'. 
+}
+return
+{
+    : int           # 操作结果编号
+    : str           # 操作结果描述
+    
+    # 可能的返回值
+    # -1 : 没有权限
+    # 0  : 操作成功. 订单已经添加.
+    # 1  : 订单价格不能小于0.
+    # 2  : 不能把自己的房屋租给自己.
+    # 3  : 该房屋的这一时段已经被一个确认过的订单占用.
+}
+
+### 拉取订单信息
+GET /orders/getinfo?form=true
+{
+    username : str              # 用户email. 描述了需要获取哪个用户的信息.
+    type : str                  # 一个描述了需要什么信息的字符串
+    
+    # 字段 type 支持的取值有
+    # all           : 获取整个订单列表.
+    # unchecked     : 获取所有未被确认的订单
+    # checked       : 获取所有确认过的订单
+    # related       : 获取所有该用户相关的订单
+    # owned         : 获取所有该用户接收的订单
+    # ordered       : 获取所有该用户发起的订单
+    # done          : 获取所有与该用户相关的已经完成的订单
+    # processing    : 获取所有与该用户相关的未完成的订单
+}
+return
+{
+    : list      # 查询到的所有订单的一个列表.
+                # 如果type格式不正确, 会返回一个空列表.
+                # 如果权限不足会返回一个包含列表 [-1, 'PERMISION DENIED'] 的json.
+    {
+        # 列表里的每一项和数据库表中的每一项完全一致. 这里不完全列出.
+        id    : str
+        time  : str
+        value : double
+        ...
+        ...
+    }
+}

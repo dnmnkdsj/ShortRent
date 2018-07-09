@@ -12,6 +12,30 @@ orders_page = redirect('/test/page')
 def get_orders_page():
     return orders_page
 
+
+def operate(cmd:str):
+    db = database.getdb()
+    cur = db.cursor()
+    # only support 'orders' table recently.
+    cur.execute('select * from orders')
+    names = [x[0] for x in cur.description]
+    data = db.execute(cmd).fetchall()
+    return jsonify([dict(zip(names, x)) for x in data])
+
+def user_operate(cmd:str):
+    username = ''
+    if 'username' in request.args :
+        username = request.args['username']
+    elif 'username' in request.form :
+        username = request.form['username']
+    if check_admin_permission() or chech_user_permission(username):
+        return operate(cmd.format(username))
+    return permission_denied_return
+
+def admin_operate(cmd:str):
+    if not check_admin_permission() : return permission_denied_return
+    return operate(cmd)
+
 # this url is for grabbing data only.
 @orders.route('/orders/getinfo', methods=['GET'])
 def get_orders_info():
@@ -46,7 +70,5 @@ def get_orders_info():
         return user_operate('select * from orders where ( customer=="{0}" OR owner=="{0}" ) AND done==1')
     elif type == 'processing' :
         return user_operate('select * from orders where ( customer=="{0}" OR owner=="{0}" ) AND done==0')
-    # TODO:
-    # Throw an HTTP 400 exception.
-    return permission_denied_return
-        
+    
+    return jsonify([])    

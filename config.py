@@ -27,7 +27,6 @@ class DevelopmentConfig(Config):
     """Debug setting"""
     DEBUG = True
 
-
 class ReleaseConfig(Config):
     """
     Mail server settings
@@ -42,7 +41,6 @@ class ReleaseConfig(Config):
     MAIL_DEFAULT_SENDER = 'hydroxyapatite@126.com'
     """Debug setting"""
     DEBUG = False
-
 
 config = {
     'development': DevelopmentConfig,

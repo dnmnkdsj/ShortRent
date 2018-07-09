@@ -1,0 +1,53 @@
+# register
+POST users/signUp
+return
+{
+    name_exist_return = jsonify([0, 'Name is exist'])
+    mail_exist_return = jsonify([1, 'Mail is exist'])
+    illegal_name_return = jsonify([2, 'Illegal name'])
+    illegal_mail_return = jsonify([3, 'Illegal mail'])
+    illegal_password_return = jsonify([4, 'Illegal password'])
+    register_success_return = jsonify([5, 'Registered successfully'])
+    wrong_method_return = jsonify([6, 'Wrong Request method'])
+}
+
+# login
+POST users/signIn
+return
+{
+    not_activated_return = jsonify([0, 'Not activated'])
+    login_successful_return = jsonify([1, 'Login successful'])
+    wrong_password_return = jsonify([2, 'Wrong password'])
+    account_exist_return = jsonify([3, 'Account does not exist'])
+    wrong_way_return = jsonify([4, 'Wrong Request method'])
+    showhouse_return = jsonify([5, "redirect(url_for('showhouse'))"])
+
+}
+
+# change_psw
+POST users/change_psw
+return
+{
+    invalid_password_return = jsonify([0, 'Wrong password'])
+    wrong_request_return = jsonify([1, 'Wrong request method'])
+    users_signIn_return = jsonify([2, "redirect(url_for('users.signIn'))"])
+}
+
+# reset
+POST users/reset
+return
+{
+    not_activated_return = jsonify([0, 'Not activated'])
+    mail_exist_return = jsonify([1, 'Mail is exist'])
+    mail_success_return = jsonify([2, 'Reset mail send'])
+    showhouse_return = jsonify([5, "redirect(url_for('showhouse'))"])
+    wrong_method_return = jsonify([6, 'Wrong Request method'])
+}
+
+# admin
+POST users/admin
+return
+{
+    admin_success_return = jsonify([0, 'administrator logged in successfully'])
+    admin_fail_return = jsonify(1, 'administrator login failed')
+}

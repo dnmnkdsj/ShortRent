@@ -1,0 +1,2 @@
+Hello {{ name }}
+激活账户请点击右边链接 {{ url_for('.reset', token=token,_external=True) }}   确认

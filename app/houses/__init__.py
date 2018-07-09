@@ -1,4 +1,4 @@
-# Hosues management.
+# Houses management.
 
 from flask import Blueprint
 

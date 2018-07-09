@@ -1,0 +1,92 @@
+# 房屋信息
+GET app/houses/house_infopage
+return
+{
+	"templates/house_info.html"
+}
+
+POST app/houses/house_info/
+{
+	int:house_id:
+}
+return 
+{
+	address: 
+	title:
+	description:
+	master:
+	rank:
+	pictures:
+	value:
+}
+# 房屋展示
+GET app/houses/showhouse
+return
+{
+	"templates/showhouse.html"
+}
+
+GET app/houses/housemsg
+return
+{
+	: list
+	{
+		id : str
+		pictures: str
+		title: str
+	}
+}
+# 房屋审核
+GET app/houses/check
+return
+{
+	"templates/check.html"
+	or
+	"Permission Denied"
+}
+
+POST app/houses/checkpost
+{
+	id: str
+	status: str
+}
+return
+{
+	errorcode : int
+	description : str
+}
+# 房屋发布 
+GET app/houses/publishpage
+return
+{
+	templates/publish.html
+}
+
+POST app/houses/publish
+{
+	address:
+	title:
+	description:
+	pictures:
+	value:
+}
+return
+{
+	(a string)
+}
+# 房屋搜索
+GET app/houses/searchpage
+{
+	"templates/search_house/html"
+}
+
+POST app/houses/search
+{
+	keyword:	
+}
+return
+{
+	status: 2/无关键字 1/有匹配项 0/无匹配项
+	idlist:[]
+	titlelist:[]
+}
