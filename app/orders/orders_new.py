@@ -4,6 +4,7 @@ from flask import session
 from . import orders
 from .utils import *
 from time import *
+from flask_login import login_required
 
 orders_creation_page = redirect('/test/page')
 
@@ -33,6 +34,7 @@ def create_id():
     
 # test url: http://127.0.0.1:5000/orders/create?user=947426443@qq.com&house=1017002344&value=1000&time=2018-9-26
 @orders.route('/orders/create', methods=['GET', 'POST'])
+@login_required
 def create_order():
     """
     The frontend submits a form to makeup the database.
@@ -54,7 +56,7 @@ def create_order():
     
     ### User permision check.
     
-    if not check_user_permission(user) : return permission_denied_return
+    if check_user_permission(user) : return permission_denied_return
     
     ### Value validate check.
     

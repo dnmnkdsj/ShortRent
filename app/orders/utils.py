@@ -17,7 +17,7 @@ def check_user_permission(username:str) :
     cmd = 'select * from users where mail="{0}" AND valid=1'.format(username)
     info = db.execute(cmd).fetchall()
     if len(info) == 0 : return False
-    return session.get('email', '') == username
+    return session.get('_id', '') == username
 
 def select_data_source():
     data = ''

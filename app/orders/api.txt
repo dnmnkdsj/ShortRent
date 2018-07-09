@@ -111,3 +111,45 @@ return
         ...
     }
 }
+
+### 订单房屋评分
+POST /order/ranking?form=true
+{
+    id : str            # 订单ID
+    ranking : int       # 评分.
+}
+return
+{
+    : int               # 操作结果编号
+    : str               # 操作结果描述
+    
+    # 可能的返回值
+    # -1 : 没有权限
+    # 0  : 操作成功
+    # 1  : 订单不存在
+    # 2  : 用户不是订单的发起者
+    # 3  : 订单已经被评分
+    # 4  : 分数值不合法
+}
+
+
+### 订单用户评分
+POST /orders/ranking?form=true
+{
+    id : str            # 订单ID
+    from : str          # 评分者email
+    to : str            # 被评分者
+    ranking : int         # 评分
+}
+return
+{
+    : int               # 操作结果编号
+    : str               # 操作结果描述
+    
+    # 可能的返回值
+    # 0  : 操作成功
+    # 1  : 订单不存在
+    # 2  : 用户不是订单的发起者或接受者
+    # 3  : 该次订单已经评分
+    # 4  : 分数值不合法
+}
