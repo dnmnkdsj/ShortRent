@@ -24,11 +24,9 @@ def operate(cmd:str):
 
 def user_operate(cmd:str):
     username = ''
-    if 'username' in request.args :
-        username = request.args['username']
-    elif 'username' in request.form :
-        username = request.form['username']
-    if check_admin_permission() or chech_user_permission(username):
+    data = select_data_source()
+    username = data['username']
+    if session._id == username:
         return operate(cmd.format(username))
     return permission_denied_return
 

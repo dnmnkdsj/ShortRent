@@ -52,7 +52,7 @@ def set_order_valid():
     valid = data['valid']
     user = data['user']
     
-    if session._id != user : return permission_denied_return
+    if check_user_permission(user) : return permission_denied_return
     
     db = database.getdb()
     
@@ -120,7 +120,7 @@ def set_order_done():
     user = data['user']
     order_id = data['id']
     
-    if session._id != user  : return permission_denied_return
+    if check_user_permission(user)  : return permission_denied_return
     
     db = database.getdb()
     
