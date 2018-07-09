@@ -8,8 +8,9 @@ import os,shutil
 
 # 接受信息： status: 管理员对房屋的操作，1代表通过，0代表拒绝 id:被操作的房屋的ID
 
-admin_has_check = "house has been checked"
-permission_denied = "Permission Denied"
+admin_has_check = jsonify("0","house has been checked")
+permission_denied = jsonify("1","Permission Denied")
+wrong_method = jsonify("2","method not POST")
 
 def DelLastChar(str):
     str_list=list(str)
@@ -47,5 +48,7 @@ def checkpost():
             cur.commit()
             cur.close()
             return admin_has_check
-        # return wrong_request???  (while not post)
-    return permission_denied
+        else:
+            return wrong_method
+    else:
+        return permission_denied

@@ -6,7 +6,7 @@ from ..db import database as _db
 from . import houses
 
 ''' show the information of specific house'''
-
+no_found = jsonify("House not found")
 
 # 接受信息: house_id:房屋的id
 
@@ -20,7 +20,10 @@ def house_info(house_id):
     db = _db.getdb()
     cur = db.cursor()
     info = cur.execute("SELECT * FROM houses WHERE id = ?", (house_id,)).fetchall()
-    info = info[0]  # tuple -> list
+    if info == []:
+        return no_found
+    else:
+        info = info[0]  # tuple -> list
     cur.close()
     return jsonify({
         'address': info[1],

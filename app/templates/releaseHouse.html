@@ -6,7 +6,9 @@
 	<link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../static/css/index.css">
 	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/jquery.form.js"></script>
 	<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
 </head>
 <style>
 .release{
@@ -67,11 +69,11 @@ label{
 			<label>标题</label>
 			<input name="title" type="text">	
 			<label>价格/晚</label>
-			<input name="cost" type="text">
+			<input  name="value" type="text">
 			<label>地址</label>
-			<input name="addr" type="text">
+			<input  name="address" type="text">
 			<label>简介</label><br/>
-			<textarea id="info" name="info" cols="60" rows="7" ></textarea><br/>
+			<textarea id="info" name="description" cols="60" rows="7" ></textarea><br/>
 			<label>上传图片</label>
 			<input type="file" multiple id="img" name="img[]" accept="image/*" />
 			<input type="button" id="upload" value="立即发布" >
@@ -81,12 +83,23 @@ label{
 	<script>
 		$("#upload").click(function(){
 			$("#fm").ajaxSubmit({
-				url:'',
+				url:'publish',
 				type:'POST',
+				// data:{
+				// 		address:address,
+				// 		title:title,
+				// 		description:info,
+				// 		pictures:
+				// 		value:
+				// 	},
 				dataType:'json',
 				success:function(data){
 					console.log(data);
+				},
+				error: function() {
+					alert("!!!!!!请求失败！");
 				}
+
 			});
 		});
 	</script>

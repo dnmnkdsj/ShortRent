@@ -11,6 +11,7 @@ import random
 
 # 返回house id 与 图片 标题
 #  res = "{"id":[[],[],[]],"pictures":[[],[],[]],"title":[[],[],[]]}"
+not_enough = jsonify("Not enough entry")
 
 @houses.route('/showhouse/')
 def showhouse():
@@ -32,6 +33,8 @@ def housemsg():
     titlelist = []
     picturelist = []
     exist_houses_info = cur.execute("SELECT id,title,picture FROM houses").fetchall()
+    if len(exist_houses_info) < COUNT:
+        return not_enough
     ranIdList = random.sample(range(0, len(exist_id)), COUNT)
     for each in ranIdList:
         title = exist_houses_info[each][1] 

@@ -83,11 +83,11 @@
             <div class="row" id="roomInfo">
                 <div v-for="room in rooms" class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <a href="#" class=""><img src="{{ url_for('static',filename='images/homepage/1.jpg') }}" alt="..."></a>
+                        <a href="houseDetails" class=""><img src="{{ url_for('static',filename='images/homepage/1.jpg') }}" alt="..."></a>
                         <div class="room-price"><span>{{room.roomPrice}}</span></div>
                         <div class="caption">
                             <h4>{{room.roomCaption}}</h4>
-                            <p><span class="badge">5.0分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+                            <p><span class="badge">{{room.roomRate}}</span><small>整套公寓</small><small>2室2床1卫</small></p>
                         </div>
                     </div>
                 </div>
