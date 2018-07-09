@@ -73,12 +73,11 @@ def publish():
             info_list.append(request.form['title'])
             info_list.append(request.form['description'])
             info_list.append(request.form['email'])
+            info_list.append(0)  # number of ratings            
             info_list.append(0)  # initial rank
             info_list.append(pictures_url)  # format:
-            info_list.append(pictures_url)
             info_list.append(request.form['value'])
             info_list.append(False)
-            info_list.append(0)  # number of ratings
             # info_list = [id,request.form.get('address',''),request.form.get('title',''),request.form.get('description',''),request.form.get('email',''),0,pictutres,'',request.form.get('value',''),'False']
             info = tuple(info_list)
             cur.execute("INSERT INTO houses (?,?,?,?,?,?,?,?,?,?)", info)
