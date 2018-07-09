@@ -10,6 +10,7 @@ import os,shutil
 
 admin_has_check = jsonify("house has been checked")
 permission_denied = jsonify("Permission Denied")
+wrong_request = jsonify("method is not POST")
 
 def DelLastChar(str):
     str_list=list(str)
@@ -46,5 +47,5 @@ def checkpost():
             cur.commit()
             cur.close()
             return admin_has_check
-        # return wrong_request???  (while not post)
+        return wrong_request
     return permission_denied

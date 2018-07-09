@@ -16,6 +16,7 @@ long_title = jsonify("the tile is too long")
 long_description = jsonify("the description is too long")
 photos_number_wrong = jsonify("the number of photos is unvalid")
 success = jsonify("success")
+wrong_request = jsonify("method is not POST")
 
 #caculate the length of Chinese
 def str_len(str):
@@ -85,3 +86,4 @@ def publish():
             cur.close()
             return success
         return anonymous
+    return wrong_request
