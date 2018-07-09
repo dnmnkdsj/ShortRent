@@ -20,15 +20,15 @@ class User(UserMixin):
 	id = ''
 	valid = ''
 	rank = ''
-	rankTimes = ''
+	rank_times = ''
 
-	def __init__(self, name, password, id, valid, rank, rankTimes):
+	def __init__(self, name, password, id, valid, rank, rank_times):
 		self.name = name
 		self.id = id
 		self.password = password
 		self.valid = valid
 		self.rank = rank
-		self.rankTimes = rankTimes
+		self.rankTimes = rank_times
 
 
 # 检验名字是否存在--注册
@@ -89,7 +89,7 @@ def verify_password(password, mail):
 
 # 创建用户
 def addUser(name, mail, password_hash):
-	sql = "insert into users (name, mail, password, valid, rankTimes, rank) values ('%s', '%s', '%s',0 ,0 ,0)" % (name, mail, password_hash)
+	sql = "insert into users (name, mail, password, valid, rank_times, rank) values ('%s', '%s', '%s',0 ,0 ,0)" % (name, mail, password_hash)
 	getdb().execute(sql)
 	getdb().commit()
 

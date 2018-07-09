@@ -75,7 +75,7 @@ def register():
 def activate(token):
 	if db.check_activate_token(token):
 		# 激活成功
-		return redirect(url_for('users.signIn'))
+		return redirect('/signIn')
 	else:
 		# 激活失败
 		return redirect(url_for('users.signUp'))
