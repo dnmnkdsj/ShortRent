@@ -150,8 +150,8 @@ def check_reset_token(token):
 
 
 # 获取name, valid
-def get_nvrr(mail):
-	sql = "select name, valid ,rank ,rankTimes from users where mail = '%s'" % mail
+def get_nv(mail):
+	sql = "select name, valid ,rank ,rank_times from users where mail = '%s'" % mail
 	result = getdb().execute(sql).fetchone()
 	return result
 
@@ -169,9 +169,9 @@ def check_valid(mail):
 # 登录认证的回调
 @login_manager.user_loader
 def load_user(user_id):
-	sql = "select name, mail, password, valid from users where mail = '%s' " % str(user_id)
+	sql = "select name, mail, password, valid , rank , rank_times from users where mail = '%s' " % str(user_id)
 	result = getdb().execute(sql).fetchone()
-	u = User(result[0], result[1], result[2], result[3])
+	u = User(result[0], result[1], result[2], result[3],result[4] ,result[5])
 	return u
 
 

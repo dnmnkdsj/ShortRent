@@ -45,7 +45,7 @@
     <!-- 页脚 -->
     <script>
     var regData = new Vue({
-        el: '#login',
+        el: 'form',
         data: {
             mail:'947426443@qq.com',
             password:'123456',
@@ -73,6 +73,7 @@
                 dataType: 'json',
                 success: function(data) {
                     console.log(data);
+                    window.location.href='/'
                 },
                 error: function() {
                     alert("请求失败！");

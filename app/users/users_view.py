@@ -78,7 +78,7 @@ def activate(token):
 		return redirect('/signIn')
 	else:
 		# 激活失败
-		return redirect(url_for('users.signUp'))
+		return redirect(url_for('/signUp'))
 
 
 @users.before_request
@@ -88,6 +88,7 @@ def before_request():
 
 @users.route("/users/signIn", methods=['GET', 'POST'])
 def login():
+	# print(request.form)
 	if g.user is not None and g.user.is_authenticated:
 		session['_fresh'] = False
 		return showhouse_return
