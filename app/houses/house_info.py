@@ -20,7 +20,10 @@ def house_info(house_id):
     db = _db.getdb()
     cur = db.cursor()
     info = cur.execute("SELECT * FROM houses WHERE id = ?", (house_id,)).fetchall()
-    info = info[0]  # tuple -> list
+    if info == []:
+    	return jsonify("Null database")
+    else:
+    	info = info[0]  # tuple -> list
     cur.close()
     return jsonify({
         'address': info[1],
