@@ -8,8 +8,8 @@ import os,shutil
 
 # 接受信息： status: 管理员对房屋的操作，1代表通过，0代表拒绝 id:被操作的房屋的ID
 
-admin_has_check = "house has been checked"
-permission_denied = "Permission Denied"
+admin_has_check = jsonify("house has been checked")
+permission_denied = jsonify("Permission Denied")
 
 def DelLastChar(str):
     str_list=list(str)
@@ -21,8 +21,8 @@ def check():
     admin = session.get('admin', 0)
     if admin:
         return render_template("check.html")
-    else: 
-        return permission_denieds
+    else:  # 如果不是管理员就把ta赶回首页去
+        return redirect(url_for('home'))
 
 
 @houses.route('/checkpost/', methods=['GET', 'POST'])
