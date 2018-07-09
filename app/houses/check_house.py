@@ -20,9 +20,9 @@ def DelLastChar(str):
 def check():
     admin = session.get('admin', 0)
     if admin:
-        return render_template("check.html")
+        return render_template("templates/check.html")
     else:  # 如果不是管理员就把ta赶回首页去
-        return redirect(url_for('home'))
+        return permission_denied
 
 
 @houses.route('/checkpost/', methods=['GET', 'POST'])
@@ -35,11 +35,10 @@ def checkpost():
             db = _db.getdb()
             cur = db.cursor()
             if operate == 0:
-                # Delete the house (lazy delete?)
                 picturepath = cur.execute("SELECT picture FROM houses WHERE id = ?", (request.form['id'],)).fetchall()[0][0]
                 picturepath = picturepath.split(";")
                 dirpath = DelLastChar(picturepath[0])
-                shutil.rmtree(dirpath) #?
+                shutil.rmtree(dirpath)
                 #  ./photo/<house id>/0 -> ./photo/<house id>/
                 cur.execute("DELETE FROM houses WHERE id = ?", (request.form['id'],))
             if operate == 1:
