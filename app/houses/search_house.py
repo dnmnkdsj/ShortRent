@@ -11,6 +11,7 @@ from ..db import database as _db
 
 # 接受： keyword 返回:查找状态（1：有结果，0：无结果）、house id 与 图片 标题
 #  res = "{'status': ,id':[idlist],'pictures':[[],[],[]],'title':[titlelist]}"
+null_key_word = "Null keyword"
 
 @houses.route('/searchpage/')
 def searchpage():
@@ -22,7 +23,9 @@ def search():
     if request.method == 'POST':
         db = _db.getdb()
         cur = db.cursor()
-        keyword = request.form['keyword']
+        keyword = request.form.get('keyword')
+        if keyword == '':
+            return null_key_word
         result = cur.execute("SELECT * FROM houses WHERE address = ?", keyword).fetchall()
         cur.close()
         idlist = []
