@@ -41,7 +41,7 @@ def release_house():
 # url_for('sign_in')
 @main.route('/signIn')
 def sign_in():
-    render_template('signIn.html')
+    return render_template('signIn.html')
 
 
 # url_for('sign_up')

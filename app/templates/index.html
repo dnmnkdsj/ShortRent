@@ -28,8 +28,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index">首页</a></li>
-                    <li><a href="">登陆</a></li>
-                    <li><a href="">注册</a></li>
+                    <li><a href="signIn">登陆</a></li>
+                    <li><a href="signUp">注册</a></li>
                     <li><a href="releaseHouse">发布房源</a></li>
                 </ul>
                 <form class="navbar-form navbar-right">
@@ -80,6 +80,18 @@
             <p>和你在另一个地方遇见美好</p>
         </div>
         <div class="content">
+            <div class="row" id="roomInfo">
+                <div v-for="room in rooms" class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <a href="#" class=""><img src="{{ url_for('static',filename='images/homepage/1.jpg') }}" alt="..."></a>
+                        <div class="room-price"><span>{{room.roomPrice}}</span></div>
+                        <div class="caption">
+                            <h4>{{room.roomCaption}}</h4>
+                            <p><span class="badge">5.0分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
@@ -239,20 +251,57 @@
         </div>
     </footer>
     <script>
-
-    //页面加载完成时请求，得到数据填充主页
-    $(function() {
+        // 修改vue语法，解决jinja2和vue的双括号语法冲突
+        Vue.config.delimiters = ['{[', ']}']
+        Vue.config.unsafeDelimiters = ['{[ ', ' ]}']
+        //房屋信息数据变量
+        var roomInfo = new Vue({
+            el:'#roomInfo',
+            data:{
+                rooms:[
+                    {
+                        roomImg:'..',
+                        roomPrice:'29$',
+                        roomCaption:'武汉·地理位置便利，私家花园套房级',
+                        roomRate:'5.0',
+                        roomType:'整套',
+                        roomStruct:'一室一厅'
+                    },
+                    {
+                        roomImg:'..',
+                        roomPrice:'59$',
+                        roomCaption:'北京',
+                        roomRate:'5.0',
+                        roomType:'整套',
+                        roomStruct:'两室一厅'
+                    }	
+                ]
+            }
+        })
+    //发送请求得到房屋信息数据
+    function getRoomsViaAJAX() {
         $.ajax({
             type: 'GET',
-            url: '/houses/housemsg',
-            success: function(data) {
+            url: 'housemsg',
+            dataType:'json'
+        })
+        .done(function(data) {
                 console.log(data);
-            },
-            error: function() {
-                alert("请求失败！");
-            }
-        });
-    });
+        })
+    };
+    function getRoomByIdViaAJAX(id=1017002343) {
+        $.ajax({
+            type: 'GET',
+            url: 'house_info/'+id,
+            dataType:'json'
+        })
+        .done(function(data) {
+                console.log(data);
+                return data
+        })
+    };
+    //将得到的房屋信息数据填充主页
+
 
     //搜索请求
     $("#btn-search").click(function() {
