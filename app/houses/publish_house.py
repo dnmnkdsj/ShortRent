@@ -10,12 +10,12 @@ import os
 # 接受信息： address: 房屋地址 title:房屋标题 description:房屋介绍 value:房屋价格 pictures:房屋图片
 # 空字段 提交后为 '' 而非 None
 
-anonymous = "hasn't log in"
-null_field = "null_field"
-long_title = "the tile is too long"
-long_description = "the description is too long"
-photos_number_wrong = "the number of photos is unvalid"
-success = "success"
+anonymous = jsonify("hasn't log in")
+null_field = jsonify("null_field")
+long_title = jsonify("the tile is too long")
+long_description = jsonify("the description is too long")
+photos_number_wrong = jsonify("the number of photos is unvalid")
+success = jsonify("success")
 
 #caculate the length of Chinese
 def str_len(str):
@@ -61,8 +61,11 @@ def publish():
                 return photos_number_wrong 
             # start to insert
             last = cur.execute("SELECT * FROM houses ORDER BY id desc LIMIT 0,1").fetchall()
-            last = last[0][0]
-            id = last + 1
+            if last == []:
+                id = 1
+            else:
+                last = last[0][0]
+                id = last + 1
             pictures_url = savephoto(photos,id) # "./photo/<house id>/0;./photo/<house id>/1 ...etc"
             info_list = list()
             info_list.append(id)
