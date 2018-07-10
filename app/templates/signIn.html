@@ -105,9 +105,11 @@
                     console.log(data);
                     document.cookie = regData.mail
                     window.location.href='/'
+                    alert('登陆成功')
                 },
                 error: function() {
                     // alert("请求失败！");
+                    alert('登陆失败')
                 }
             });
         },

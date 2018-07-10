@@ -88,7 +88,7 @@
                     </form>
                 </div>
                 <p>总计<span id="price">￥56</span></p>
-                <button onclick="window.location.href='/orderDetails'" class="btn btn-default btn-lg" id="btn-book">立即预订</button>
+                <button onclick="createOrder();" class="btn btn-default btn-lg" id="btn-book">立即预订</button>
                 <!-- <div class="aside-footer">
           <a href="#" class="collect">
             <small>收藏</small>
@@ -100,13 +100,15 @@
     </section>
     <article class="container">
         <div id="roomDetails">
-            <h3 style="margin-bottom: 20px;width: 95%"><span class="badge">4.8分  </span>我是标题</h3>
+            <h3 style="margin-bottom: 20px;width: 95%"><span class="badge">{{roomDetails.roomRate}} </span>{{roomDetails.roomCaption}}</h3>
             <div class="title">
-                <h3>房源简介 </h3>
+                <h3>简介</h3>
             </div>
             <div class="content">
                 <p>
-                    我是简介
+                    {{roomDetails.roomDescription}}
+                        享受舒适的新装修的房间位于轻轨站旁边。这是最好的选择，如果你想旅行和探索真正的曼谷与轻轨和混乱船。该地方配有免费无线网络，健身，游泳池，阅览室和厨房角落。
+                        客房内设有沐浴露和洗发水，包括一些咖啡和茶以及一些小吃。
                 </p>
             </div>
         </div>
@@ -296,43 +298,82 @@
         var roomDetails = new Vue({
             el:'#roomDetails',
             data:{
+                roomDetails:{
+                    roomImg: '',
+                    roomPrice: '',
+                    roomCaption: '杭州·西湖之巅，零距离湖景房',
+                    roomRate: '666',
+                    roomType:'',
+                    roomStruct:''
+                }
             }
         })
-        // var roomsInfo = new Vue({
-        //     el:'#myFlexisel',
-        //     data:{
-        //         rooms:[	
-        //         ]
-        //     }
-        // })
-        // roomsInfo.rooms.push({
-        //     roomPrice: '2222',
-        //     roomCaption: '3333',
-        // }) 
-        // roomsInfo.rooms.push({
-        //     roomPrice: '2222',
-        //     roomCaption: '3333',
-        // }) 
-        // roomsInfo.rooms.push({
-        //     roomPrice: '2222',
-        //     roomCaption: '3333',
-        // }) 
-            $.ajax({
-                type: 'GET',
-                url: '/house_info/'+ window.location.href.split('/')[4] ,
-                dataType:'json'
-            })
-            .done(function(data) {
+        var roomsInfo = new Vue({
+            el:'#myFlexisel',
+            data:{
+                rooms:[	
+                ]
+            }
+        })
+        roomsInfo.rooms.push({
+            roomPrice: '2222',
+            roomCaption: '3333',
+        }) 
+        roomsInfo.rooms.push({
+            roomPrice: '2222',
+            roomCaption: '3333',
+        }) 
+        roomsInfo.rooms.push({
+            roomPrice: '2222',
+            roomCaption: '3333',
+        }) 
+        $.ajax({
+            type: 'GET',
+            url: '/house_info/'+ window.location.href.split('/')[4] ,
+            dataType:'json', 
+            success: function(data) {
                 console.log(data);
-                roomDetails = {
-                    roomImg: data.picture,
-                    roomPrice: data.value,
-                    roomCaption: data.title,
-                    roomRate: data.rank,
-                    roomType:'整套',
-                    roomStruct:'两室一厅'
+                if('House not found'===data) {
+                    alert('请求失败。即将跳回首页'); 
+                    window.location.href = "/"
+                }else{
+                    roomDetails.roomDetails = {
+                        roomImg: data.picture,
+                        roomPrice: data.value,
+                        roomCaption: data.title,
+                        roomDescription : data.description,
+                        roomRate: data.rank,
+                        roomType:'整套',
+                        roomStruct:'两室一厅'
+                    }
                 }
+            },
+            error: function(){
+                alert('请求失败')
+            } 
+        })
+        function createOrder(){
+            $.ajax({
+                type: 'POST',
+                url: '/orders/create?form=true' ,
+                dataType:'json',
+                data:{
+                    user : document.cookie,                  
+                    house : window.location.href.split('/')[4],   
+                    value : '58',
+                    time : '2018-07-11'
+                } ,
+                success: function(data) {
+                    console.log(data);
+                    alert('订单创建成功')
+                    window.location.href='/myOrder'
+                },
+                error: function(){
+                    alert('请求失败')
+                } 
             })
+        }
+
 
         // $.ajax({
         //     type: 'GET',

@@ -79,7 +79,7 @@ def create_order():
     
     ### Conflict time check.
     
-    cmd = 'select * from orders where house=="{0}" AND time=="{1}" AND valid==1'.format(house, time)
+    cmd = 'select * from orders where house=="{0}" AND time=="{1}" AND passed==1'.format(house, time)
     print('conflict: ', cmd)
     orders_conflict = db.execute(cmd).fetchall()
     if len(orders_conflict) != 0 :
@@ -94,6 +94,9 @@ def create_order():
         '{0}'.format(value),                # value
         '"{0}"'.format(user),               # customer
         '"{0}"'.format(house_master),       # owner
+        '0',
+        '0',
+        '0',
         '"{0}"'.format(house),              # house
         '0',                                # passed
         '0'                                 # done

@@ -33,6 +33,7 @@
                     <li id="releaseHouseButton" style="visibility: hidden"><a href="releaseHouse">发布房源</a></li>
                     <li id="myOrderButton"><a href="myOrder">我的订单</a></li>
                     <li id="usernameButton"><a>欢迎您，947426443@qq.com</a></li>
+                    <li id="logOutButton" onclick="document.cookie='null';window.location.href='/'"><a>注销</a></li>                    
                 </ul>
                 <form class="navbar-form navbar-right">
                     <div>
@@ -262,12 +263,15 @@
             document.getElementById('releaseHouseButton').style.setProperty('visibility','visible')
             document.getElementById('myOrderButton').style.setProperty('visibility','visible')
             document.getElementById('usernameButton').style.setProperty('visibility','visible')            
+            document.getElementById('logOutButton').style.setProperty('visibility','visible')            
         }else if( "null" == document.cookie){
             document.getElementById('signInButton').style.setProperty('visibility','visible')
             document.getElementById('signUpButton').style.setProperty('visibility','visible')
             document.getElementById('releaseHouseButton').style.setProperty('visibility','hidden')
             document.getElementById('myOrderButton').style.setProperty('visibility','hidden')
             document.getElementById('usernameButton').style.setProperty('visibility','hidden')            
+            document.getElementById('logOutButton').style.setProperty('visibility','hidden')            
+
         }
         //房屋信息数据变量
         var roomInfo = new Vue({
