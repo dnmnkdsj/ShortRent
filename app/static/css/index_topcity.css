@@ -1,0 +1,256 @@
+.top-grid  h3 {
+ 	font-size: 3em;
+  	color: #000;
+  	margin:0 0 0.4em;
+	font-family: 'Montserrat-Regular';
+  	text-align: center;
+}
+.top-grid h3:after,.top-grid h3:before {
+  	width: 200px;
+  	height: 1px;
+ 	 display: inline-block;
+ 	 vertical-align: middle;
+ 	 content: "";
+ 	 background: #000;
+ 	 margin: 0 1%;
+}
+.grid1 {
+  padding: 2em 0 0;
+}
+
+.grid {
+	position: relative;
+	margin: 0 auto;
+	list-style: none;
+	text-align: center;
+}
+
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+figure.effect-layla figcaption::before,
+figure.effect-layla figcaption::after {
+	position: absolute;
+	content: '';
+	opacity: 0;
+}
+
+figure.effect-layla figcaption::before {
+	top: 25px;
+	right: 15px;
+	bottom: 25px;
+	left: 15px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+
+figure.effect-layla figcaption::after {
+	top: 15px;
+	right: 25px;
+	bottom: 15px;
+	left: 25px;
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
+
+	-webkit-transform: scale(1,0);
+	transform: scale(1,0);
+	-webkit-transform-origin: 100% 0;
+	transform-origin: 100% 0;
+
+}
+figure.effect-layla h4 {
+	margin-top: 14%;
+	font-size: 1.5em;
+  	font-family: 'Montserrat-Regular';
+	opacity: 0;
+	-webkit-transform: translate3d(0,-10px,0);
+	transform: translate3d(0,-10px,0);
+}
+
+figure.effect-layla p {
+	margin: 0.5em 0em 0;
+	font-size:0.7em;
+	color:#fff;
+	text-transform: none;
+	opacity: 0;
+	-webkit-transform: translate3d(0,-10px,0);
+	transform: translate3d(0,-10px,0);
+}
+figure.effect-layla h4 {
+	-webkit-transform: translate3d(0,-30px,0);
+	transform: translate3d(0,-30px,0);
+}
+figure.effect-layla figcaption::before,
+figure.effect-layla figcaption::after
+ {
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+figure.effect-layla:hover figcaption::before,
+figure.effect-layla:hover figcaption::after {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+figure.effect-layla:hover h4,
+figure.effect-layla:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+figure.effect-layla:hover figcaption::after,
+figure.effect-layla:hover h4,
+figure.effect-layla:hover p
+ {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+figure.effect-layla:hover {
+  	background-color: #000;
+}
+/*--//--*/
+.grid-lo figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;
+}
+
+.grid-lo figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+}
+
+.grid-lo figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.grid-lo figure figcaption,
+.grid-lo figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+figure.effect-layla h4 {
+	margin-top: 90%;
+	font-size: 1.2em;
+  	font-family: 'Montserrat-Regular';
+	opacity: 0;
+	-webkit-transform: translate3d(0,-10px,0);
+	transform: translate3d(0,-10px,0);
+}
+.grid-city {
+  padding: 0 3px;
+}
+.grid-lo2 {
+  padding: 0;
+}
+.grid-me {
+  padding: 0;
+}
+.col-md-8.grid-lo1 {
+  padding: 0 6px 0 0;
+}
+.grid-lo3 {
+  padding: 0 3px 0 0;
+}
+.grid-lo4 {
+  padding: 0 0 0 3px;
+}
+
+.grid-at{
+	padding: 2em 0 0;
+}
+figure.effect-layla h4.effect1{
+	margin-top: 30%;
+}
+figure.effect-layla h4.effect3{
+	margin-top: 23%;
+}
+
+.grid-city {
+  float: left;
+  width: 25%;
+}
+.grid-city1 {
+  width:50%
+}
+.col-md-8.grid-lo1 {
+  float: left;
+  width: 67%;
+}
+.grid-lo2 {
+  float: left;
+  width: 33%;
+}
+.grid-lo3 {
+  float: left;
+  width: 50%;
+}
+.grid-lo4 {
+  float: left;
+  width: 50%;
+}
+/*figure.effect-layla h4 {
+  margin-top: 95%;
+  font-size: 0.9em;
+}*/
+.grid-lo figure figcaption {
+  padding: 1em;
+}
+
+figure.effect-layla h4.effect2 {
+  margin-top:80%;
+}
+.grid-me {
+  padding-bottom: 3px;
+}
+.top-grid {
+  padding: 2em 0 3em;
+}
