@@ -24,24 +24,25 @@ def housemsg():
     cur = db.cursor()
     last = cur.execute("SELECT * FROM houses ORDER BY id desc LIMIT 0,1").fetchall()
     lastid = last[0][0]
-    COUNT = 3
+    # COUNT = 3
+    COUNT = 2    
     res = ""
     field1 = '"id"'
     field2 = '"title"'
     field3 = '"picture"'
-    res = res + field1 + ':' + ranIdList + ','
     titlelist = []
     picturelist = []
     exist_houses_info = cur.execute("SELECT id,title,picture FROM houses").fetchall()
     if len(exist_houses_info) < COUNT:
         return not_enough
-    ranIdList = random.sample(range(0, len(exist_id)), COUNT)
+    ranIdList = random.sample(range(0, len(exist_houses_info)), COUNT)
+    res = res + field1 + ':' + str(ranIdList) + ','
     for each in ranIdList:
         title = exist_houses_info[each][1] 
         titlelist.append(title)
         pic = exist_houses_info[each][2] 
         picturelist.append(pic)
-    res = res + field2 + ':' + titlelist + ',' + field3 + ':' + picturelist
+    res = res + field2 + ':' + str(titlelist) + ',' + field3 + ':' + str(picturelist)
     res = '{' + res + '}'
     cur.close()
     return jsonify(res)

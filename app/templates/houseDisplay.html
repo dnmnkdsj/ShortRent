@@ -111,17 +111,17 @@
             </div>
         </div>
         <div class="content">
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
+            <div class="row" id="searchingResult">
+                <div v-for="room in rooms " class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <a href="#" class="">
                             <img src="../static/images/homepage/1.jpg" alt="...">
                         </a>
-                        <div class="room-price"><span>￥89</span>
+                        <div class="room-price"><span>{{room.roomPrice}}</span>
                         </div>
                         <div class="caption">
-                            <h4>地理位置便利，私家花园套房级...</h4>
-                            <p><span class="badge">5.0分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+                            <h4>{{room.roomCaption}}</h4>
+                            <p><span class="badge">{{room.roomRate}}</span><small>整套公寓</small><small>2室2床1卫</small></p>
                         </div>
                     </div>
                 </div>
@@ -274,50 +274,73 @@
         </div>
     </footer>
     <script>
-    //取到跳转前用户在输入框的输入
-    function getQueryString(key) {
-        var result = window.location.search.match(new RegExp("[\?\&]" + key + "=([^\&]+)", "i"));
-        if (result == null || result.length < 1) {
-            return "";
+        var roomInfo = new Vue({
+            el:'#searchingResult',
+            data:{
+                rooms:[	
+                ]
+            }
+        })
+        roomInfo.rooms.push({
+            roomImg: '1111',
+            roomPrice: '2222',
+            roomCaption: '3333',
+            roomRate: '4444',
+            roomType: '整套',
+            roomStruct:'两室一厅'
+        }) 
+        roomInfo.rooms.push({
+            roomImg: '1111',
+            roomPrice: '2222',
+            roomCaption: '3333',
+            roomRate: '4444',
+            roomType: '整套',
+            roomStruct:'两室一厅'
+        })           
+        //取到跳转前用户在输入框的输入
+        function getQueryString(key) {
+            var result = window.location.search.match(new RegExp("[\?\&]" + key + "=([^\&]+)", "i"));
+            if (result == null || result.length < 1) {
+                return "";
+            }
+            return result[1];
         }
-        return result[1];
-    }
-    //页面加载时请求
-    $(function() {
-        var str = getQueryString("keyword");
-        alert(str);
-        $.ajax({
-            type: 'GET',
-            url: 'houses/search',
-            data: {
-                keyword: str
-            },
-            success: function(data) {
-                console.log(data);
-                // 填充页面
-            },
-            error: function() {
-                alert("请求失败！");
-            }
+        //页面加载时请求
+        $(function() {
+            var str = getQueryString("keyword");
+            alert(str);
+            $.ajax({
+                type: 'GET',
+                url: 'houses/search',
+                data: {
+                    keyword: str
+                },
+                success: function(data) {
+                    console.log(data);
+                    // 填充页面
+                },
+                error: function() {
+                    alert("请求失败！");
+                }
+            });
         });
-    });
 
-    //分页效果
-    $(function() {
-        $("#pagination").pagination({
-            currentPage: 1,
-            totalPage: 16,
-            isShow: true,
-            count: 7,
-            homePageText: "首页",
-            endPageText: "尾页",
-            prevPageText: "上一页",
-            nextPageText: "下一页",
-            callback: function(current) {
-                $("#current3").text(current);
-            }
+        //分页效果
+        $(function() {
+            $("#pagination").pagination({
+                currentPage: 1,
+                totalPage: 16,
+                isShow: true,
+                count: 7,
+                homePageText: "首页",
+                endPageText: "尾页",
+                prevPageText: "上一页",
+                nextPageText: "下一页",
+                callback: function(current) {
+                    $("#current3").text(current);
+                }
+            });
         });
-    });
     </script>
 </body>
 

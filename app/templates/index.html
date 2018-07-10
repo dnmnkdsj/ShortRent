@@ -87,11 +87,12 @@
                         <div class="room-price"><span>{{room.roomPrice}}</span></div>
                         <div class="caption">
                             <h4>{{room.roomCaption}}</h4>
-                            <p><span class="badge">{{room.roomRate}}</span><small>整套公寓</small><small>2室2床1卫</small></p>
+                            <p><span class="badge">{{room.roomRate}}</span><small>{{room.roomType}}</small><small>{{room.roomStruct}}</small></p>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
@@ -211,6 +212,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
     <!--页脚部分 -->
@@ -251,79 +253,92 @@
         </div>
     </footer>
     <script>
-        // 修改vue语法，解决jinja2和vue的双括号语法冲突
-        Vue.config.delimiters = ['{[', ']}']
-        Vue.config.unsafeDelimiters = ['{[ ', ' ]}']
         //房屋信息数据变量
         var roomInfo = new Vue({
             el:'#roomInfo',
             data:{
-                rooms:[
-                    {
-                        roomImg:'..',
-                        roomPrice:'29$',
-                        roomCaption:'武汉·地理位置便利，私家花园套房级',
-                        roomRate:'5.0',
-                        roomType:'整套',
-                        roomStruct:'一室一厅'
-                    },
-                    {
-                        roomImg:'..',
-                        roomPrice:'59$',
-                        roomCaption:'北京',
-                        roomRate:'5.0',
-                        roomType:'整套',
-                        roomStruct:'两室一厅'
-                    }	
+                rooms:[	
                 ]
             }
         })
-    //发送请求得到房屋信息数据
-    function getRoomsViaAJAX() {
+        roomInfo.rooms.push({
+            roomImg: '1111',
+            roomPrice: '2222',
+            roomCaption: '3333',
+            roomRate: '4444',
+            roomType: '整套',
+            roomStruct:'两室一厅'
+        }) 
+        roomInfo.rooms.push({
+            roomImg: '1111',
+            roomPrice: '2222',
+            roomCaption: '3333',
+            roomRate: '4444',
+            roomType: '整套',
+            roomStruct:'两室一厅'
+        })                     
+        //发送请求得到房屋信息数据
+        function getRoomByIdViaAJAX(id=1017002343) {
+            $.ajax({
+                type: 'GET',
+                url: 'house_info/'+id,
+                dataType:'json'
+            })
+            .done(function(data) {
+                // console.log(data);
+                roomi = getRoomByIdViaAJAX(i)
+                    // console.log(roomi)
+                    roomInfo.rooms.push({
+                        roomImg: roomi.picture,
+                        roomPrice: roomi.value,
+                        roomCaption: roomi.title,
+                        roomRate: roomi.rank,
+                        roomType:'整套',
+                        roomStruct:'两室一厅'
+                    }) 
+            })
+        };
         $.ajax({
             type: 'GET',
             url: 'housemsg',
             dataType:'json'
         })
         .done(function(data) {
-                console.log(data);
+            console.log(data);
+            for ( i in data.id ){
+                console.log(i);                
+                getRoomByIdViaAJAX(i)
+                
+            } 
         })
-    };
-    function getRoomByIdViaAJAX(id=1017002343) {
-        $.ajax({
-            type: 'GET',
-            url: 'house_info/'+id,
-            dataType:'json'
-        })
-        .done(function(data) {
-                console.log(data);
-                return data
-        })
-    };
-    //将得到的房屋信息数据填充主页
+        //所谓[异步]，return不会等ajax函数内内容完成再执行。
+        //将得到的房屋信息数据填充主页
 
 
-    //搜索请求
-    $("#btn-search").click(function() {
-        $.ajax({
-            type: 'GET',
-            url: 'houses/searchpage',
-            dataType: 'json',
-            success: function(data) {
-                console.log(data);
-                //跳转到搜索后的界面并传入搜索关键字
-                window.location.href = data + "?keyword=" + $("#keyword").val();
-            },
-            error: function() {
-                alert("请求失败！");
-            }
+        //搜索请求
+        $("#btn-search").click(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'houses/searchpage',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    //跳转到搜索后的界面并传入搜索关键字
+                    window.location.href = data + "?keyword=" + $("#keyword").val();
+                },
+                error: function() {
+                    alert("请求失败！");
+                }
+            });
         });
-    });
 
-    // 轮播图速度
-    $('.carousel').carousel({
-        interval: 2500,
-    });
+
+    </script>
+    <script>
+        // 轮播图速度
+        $('.carousel').carousel({
+            interval: 2500,
+        });
     </script>
 </body>
 

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../static/css/houseDetails.css">
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/jquery.flexisel.js"></script>
+    <script src="../static/js/vue.min.js"></script>
     <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 
@@ -205,18 +206,18 @@
                 <div class="other">
                     <div class="content-bottom-in">
                         <ul id="myFlexisel">
-                            <li>
+                            <li v-for = "room in rooms ">
                                 <div class="homelist">
                                     <a href="#"><img src="../static/images/houseDetails/1.jpg" alt="" /></a>
                                     <div style="padding: 0.5em 0em">
                                         <div style="padding: 0 1em 0.5em">
-                                            <span class="fur-money">￥200/晚</span>
-                                            <h6 class="fur-name"><a href="#">标题</a></h6>
+                                            <span class="fur-money">{{room.roomPrice}}</span>
+                                            <h6 class="fur-name"><a href="#">{{room.roomCaption}}</a></h6>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <div class="homelist">
                                     <a href="#"><img src="../static/images/houseDetails/2.jpg" alt="" /></a>
                                     <div style="padding: 0.5em 0em">
@@ -248,7 +249,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -293,36 +294,56 @@
         </div>
     </footer>
     <script>
-    $('.carousel').carousel({
-        interval: false
-    });
-    </script>
-    <script>
-    $(window).load(function() {
-        $("#myFlexisel").flexisel({
-            visibleItems: 4,
-            animationSpeed: 1000,
-            autoPlay: true,
-            autoPlaySpeed: 3000,
-            pauseOnHover: true,
-            enableResponsiveBreakpoints: true,
-            responsiveBreakpoints: {
-                portrait: {
-                    changePoint: 480,
-                    visibleItems: 1
-                },
-                landscape: {
-                    changePoint: 640,
-                    visibleItems: 2
-                },
-                tablet: {
-                    changePoint: 768,
-                    visibleItems: 3
-                }
+        var roomInfo = new Vue({
+            el:'#myFlexisel',
+            data:{
+                rooms:[	
+                ]
             }
-        });
+        })
+        roomInfo.rooms.push({
+            roomPrice: '2222',
+            roomCaption: '3333',
+        }) 
+        roomInfo.rooms.push({
+            roomPrice: '2222',
+            roomCaption: '3333',
+        }) 
+        roomInfo.rooms.push({
+            roomPrice: '2222',
+            roomCaption: '3333',
+        }) 
 
-    });
+        $('.carousel').carousel({
+            interval: false
+        });
+        </script>
+        <script>
+        $(window).load(function() {
+            $("#myFlexisel").flexisel({
+                visibleItems: 4,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });
     </script>
 </body>
 

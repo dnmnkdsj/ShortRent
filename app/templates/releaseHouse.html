@@ -95,6 +95,9 @@ label{
 				dataType:'json',
 				success:function(data){
 					console.log(data);
+					if(0 == data[0]){
+						alert(data[1])
+					}
 				},
 				error: function() {
 					alert("!!!!!!请求失败！");
