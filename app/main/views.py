@@ -25,6 +25,11 @@ def house_display():
 def my_house():
     return render_template('myHouse.html')
 
+# url_for('my_house')
+@main.route('/orderDetails')
+def order_details():
+    return render_template('orderDetails.html')
+
 
 # url_for('my_order')
 @main.route('/myOrder')

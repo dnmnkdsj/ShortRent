@@ -28,7 +28,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">首页</a></li>
+                    <li class="active"><a href="index">首页</a></li>
                     <li><a href="#">登陆</a></li>
                     <li><a href="#">注册</a></li>
                     <li><a href="#">发布房源</a></li>
@@ -79,7 +79,7 @@
             <!-- 侧边栏预订框 -->
             <aside>
                 <div class="title">
-                    <h3>￥56/晚{{roomDetails.roomPrice}}</h3>
+                    <h3>￥56/晚</h3>
                 </div>
                 <div class="form-group" style="text-align: center;">
                     <form>
@@ -89,7 +89,7 @@
                     </form>
                 </div>
                 <p>总计<span id="price">￥56</span></p>
-                <button class="btn btn-default btn-lg" id="btn-book">立即预订</button>
+                <button onclick="window.location.href='/orderDetails'" class="btn btn-default btn-lg" id="btn-book">立即预订</button>
                 <!-- <div class="aside-footer">
           <a href="#" class="collect">
             <small>收藏</small>
@@ -101,7 +101,7 @@
     </section>
     <article class="container">
         <div id="roomDetails">
-            <h3 style="margin-bottom: 20px;width: 95%"><span class="badge">4.8分 {{roomDetails.roomRate}} </span>我是标题{{roomDetails.roomCaption}}</h3>
+            <h3 style="margin-bottom: 20px;width: 95%"><span class="badge">4.8分  </span>我是标题</h3>
             <div class="title">
                 <h3>房源简介 </h3>
             </div>
