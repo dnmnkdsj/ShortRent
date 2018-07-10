@@ -88,24 +88,25 @@ def before_request():
 
 @users.route("/users/signIn", methods=['GET', 'POST'])
 def login():
-	# print(request.form)
 	if g.user is not None and g.user.is_authenticated:
 		session['_fresh'] = False
 		return showhouse_return
-	if request.method == 'POST':
-		if db.isMailExisted(request.form['mail']):
-			if not db.check_valid(request.form['mail']):
-				return not_activated_return  # 账户未激活
-			else:
-				if db.verify_password(request.form['password'], request.form['mail']):
-					result = db.get_nv(request.form['mail'])
-					user = db.User(result[0], db.password(request.form['password']), request.form['mail'], result[1], result[2], result[3])
-					login_user(user, request.form['remember'])  # remember:记住密码
-					return login_successful_return
+	else:
+		if request.method == 'POST':
+			if db.isMailExisted(request.form['mail']):
+				if not db.check_valid(request.form['mail']):
+					return not_activated_return  # 账户未激活
 				else:
-					return wrong_password_return
+					if db.verify_password(request.form['password'], request.form['mail']):
+						result = db.get_nv(request.form['mail'])
+						user = db.User(result[0], db.password(request.form['password']), request.form['mail'], result[1], result[2], result[3])
+						login_user(user, request.form['remember'])  # remember:记住密码
+						return login_successful_return
+					else:
+						return wrong_password_return
+			else:
 				return account_exist_return
-	return wrong_way_return
+		return wrong_way_return
 
 
 @users.route("/users/change_psw", methods=['GET', 'POST'])
