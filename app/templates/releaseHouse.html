@@ -13,7 +13,7 @@
 <style>
 .release{
 	width: 500px;
-	margin: 10px auto 0 auto;
+	margin: 120px auto 100px auto;
 }
 .release h3{
 
@@ -54,6 +54,7 @@ label{
 	-o-transition: 0.5s all;
 	margin-top: 1em;
 	margin-bottom: 5em;
+	margin-left: 24%;
 	font-family: 'PT Sans', sans-serif;
 }
 #upload:hover {
@@ -62,6 +63,37 @@ label{
 
 </style>
 <body>
+<!-- 导航栏 -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" id="header">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="color: white">短租网</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index">首页</a></li>
+                    <li id="signInButton"><a href="signIn">登陆</a></li>
+                    <li id="signUpButton"><a href="signUp">注册</a></li>
+                    <li id="releaseHouseButton" style="visibility: hidden"><a href="releaseHouse">发布房源</a></li>
+                    <li id="myOrderButton"><a href="myOrder">我的订单</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div>
+                        <input type="text" id="keyword" name="keyword" placeholder="城市或目的地">
+                        <button type="button" id="btn-search">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>	
 	<div class="release">
 		 <!-- enctype="multipart/form-data"加不加待定 -->
 		<form action="" id="fm">
@@ -78,7 +110,43 @@ label{
 			<input type="file" multiple id="img" name="img[]" accept="image/*" />
 			<input type="button" id="upload" value="立即发布" >
 		</form>
-	</div>	
+	</div>
+    <footer class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4 col-md-2">
+                    <h3><a href="#">关于我们</a></h3>
+                    <div class="text-left">
+                        <p><a href="#">了解我们</a></p>
+                        <p><a href="#">加入我们</a></p>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-md-2">
+                    <h3><a href="#">网站协议</a></h3>
+                    <div class="text-left">
+                        <p><a href="#">房客指南</a></p>
+                        <p><a href="#">房东指南</a></p>
+                        <p><a href="#">服务协议</a></p>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-md-2 ">
+                    <h3><a href="#">联系客服</a></h3>
+                    <div class="text-left">
+                        <p><a href="#">电话<br/>400-010-7890</a></p>
+                        <p><a href="#">邮箱<br/>service@re.com</a></p>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-md-2 col-md-offset-2 " style="padding-top: 20px;">
+                    <img src="../static/images/homepage/u109.png" alt="">
+                    <p>下载APP</p>
+                </div>
+                <div class="col-xs-4 col-md-2" style="padding-top: 20px;">
+                    <img src="../static/images/homepage/u109.png" alt="">
+                    <p>关注微信公众号</p>
+                </div>
+            </div>
+        </div>
+    </footer>		
 
 	<script>
 		$("#upload").click(function(){

@@ -29,22 +29,21 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index">首页</a></li>
-                    <li><a href="#">登陆</a></li>
-                    <li><a href="#">注册</a></li>
-                    <li><a href="#">发布房源</a></li>
+                    <li id="signInButton"><a href="signIn">登陆</a></li>
+                    <li id="signUpButton"><a href="signUp">注册</a></li>
+                    <li id="releaseHouseButton" style="visibility: hidden"><a href="releaseHouse">发布房源</a></li>
+                    <li id="myOrderButton"><a href="myOrder">我的订单</a></li>
                 </ul>
                 <form class="navbar-form navbar-right">
                     <div>
-                        <input type="text" class="" placeholder="城市或目的地">
-                        <button type="button" class="">
+                        <input type="text" id="keyword" name="keyword" placeholder="城市或目的地">
+                        <button type="button" id="btn-search">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </div>
                 </form>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
     <!-- 内容部分 -->
     <section class="container" id="show">
