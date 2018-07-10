@@ -281,22 +281,6 @@
                 ]
             }
         })
-        roomInfo.rooms.push({
-            roomImg: '1111',
-            roomPrice: '2222',
-            roomCaption: '3333',
-            roomRate: '4444',
-            roomType: '整套',
-            roomStruct:'两室一厅'
-        }) 
-        roomInfo.rooms.push({
-            roomImg: '1111',
-            roomPrice: '2222',
-            roomCaption: '3333',
-            roomRate: '4444',
-            roomType: '整套',
-            roomStruct:'两室一厅'
-        })                     
         //发送请求得到房屋信息数据
         function getRoomByIdViaAJAX(id=1017002343) {
             $.ajax({
@@ -305,31 +289,30 @@
                 dataType:'json'
             })
             .done(function(data) {
-                // console.log(data);
-                roomi = getRoomByIdViaAJAX(i)
-                    // console.log(roomi)
-                    roomInfo.rooms.push({
-                        roomImg: roomi.picture,
-                        roomPrice: roomi.value,
-                        roomCaption: roomi.title,
-                        roomRate: roomi.rank,
-                        roomType:'整套',
-                        roomStruct:'两室一厅'
+                console.log(data)
+                roomInfo.rooms.push({
+                    roomImg: data.picture,
+                    roomPrice: data.value,
+                    roomCaption: data.title,
+                    roomRate: data.rank,
+                    roomType:'整套',
+                    roomStruct:'两室一厅'
                     }) 
             })
         };
+        getRoomByIdViaAJAX()
         $.ajax({
             type: 'GET',
-            url: 'housemsg',
+            url: '/housemsg',
             dataType:'json'
         })
         .done(function(data) {
             console.log(data);
-            for ( i in data.id ){
-                console.log(i);                
-                getRoomByIdViaAJAX(i)
-                
-            } 
+            console.log(data[0]);
+            for ( i=0;  i< data[0].length ;i++ ){
+                console.log(data[0][i]);
+                getRoomByIdViaAJAX(data[0][i])
+            }
         })
         //所谓[异步]，return不会等ajax函数内内容完成再执行。
         //将得到的房屋信息数据填充主页

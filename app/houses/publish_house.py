@@ -58,13 +58,16 @@ def publish():
                 return long_description
             photos = request.form.get('pictures')
             if len(photos) < 4 and len(photos) > 10:
-                return photos_number_wrong 
+                return photos_number_wrong
             # start to insert
             last = cur.execute("SELECT * FROM houses ORDER BY id desc LIMIT 0,1").fetchall()
             if last == []:
                 id = 1
             else:     
                 last = last[0][0]
+
+
+
                 id = last + 1
             pictures_url = savephoto(photos,id) # "./photo/<house id>/0;./photo/<house id>/1 ...etc"
             info_list = list()
