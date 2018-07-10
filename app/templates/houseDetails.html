@@ -13,7 +13,7 @@
     <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body >
     <!-- 导航栏 -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" id="header">
         <div class="container">
@@ -79,7 +79,7 @@
             <!-- 侧边栏预订框 -->
             <aside>
                 <div class="title">
-                    <h3>￥56/晚</h3>
+                    <h3>￥56/晚{{roomDetails.roomPrice}}</h3>
                 </div>
                 <div class="form-group" style="text-align: center;">
                     <form>
@@ -100,10 +100,10 @@
         </div>
     </section>
     <article class="container">
-        <div>
-            <h3 style="margin-bottom: 20px;width: 95%"><span class="badge">4.8分</span>我是标题</h3>
+        <div id="roomDetails">
+            <h3 style="margin-bottom: 20px;width: 95%"><span class="badge">4.8分 {{roomDetails.roomRate}} </span>我是标题{{roomDetails.roomCaption}}</h3>
             <div class="title">
-                <h3>房源简介</h3>
+                <h3>房源简介 </h3>
             </div>
             <div class="content">
                 <p>
@@ -294,25 +294,62 @@
         </div>
     </footer>
     <script>
-        var roomInfo = new Vue({
-            el:'#myFlexisel',
+        var roomDetails = new Vue({
+            el:'#roomDetails',
             data:{
-                rooms:[	
-                ]
             }
         })
-        roomInfo.rooms.push({
-            roomPrice: '2222',
-            roomCaption: '3333',
-        }) 
-        roomInfo.rooms.push({
-            roomPrice: '2222',
-            roomCaption: '3333',
-        }) 
-        roomInfo.rooms.push({
-            roomPrice: '2222',
-            roomCaption: '3333',
-        }) 
+        // var roomsInfo = new Vue({
+        //     el:'#myFlexisel',
+        //     data:{
+        //         rooms:[	
+        //         ]
+        //     }
+        // })
+        // roomsInfo.rooms.push({
+        //     roomPrice: '2222',
+        //     roomCaption: '3333',
+        // }) 
+        // roomsInfo.rooms.push({
+        //     roomPrice: '2222',
+        //     roomCaption: '3333',
+        // }) 
+        // roomsInfo.rooms.push({
+        //     roomPrice: '2222',
+        //     roomCaption: '3333',
+        // }) 
+            $.ajax({
+                type: 'GET',
+                url: '/house_info/'+ window.location.href.split('/')[4] ,
+                dataType:'json'
+            })
+            .done(function(data) {
+                console.log(data);
+                roomDetails = {
+                    roomImg: data.picture,
+                    roomPrice: data.value,
+                    roomCaption: data.title,
+                    roomRate: data.rank,
+                    roomType:'整套',
+                    roomStruct:'两室一厅'
+                }
+            })
+
+        // $.ajax({
+        //     type: 'GET',
+        //     url: 'housemsg',
+        //     dataType:'json'
+        // })
+        // .done(function(data) {
+        //     console.log(data);
+        //     for ( i in data.id ){
+        //         console.log(i);                
+        //         getRoomByIdViaAJAX(i)
+                
+        //     } 
+        // }) 
+
+
 
         $('.carousel').carousel({
             interval: false

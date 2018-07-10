@@ -9,8 +9,8 @@ def index():
 
 
 # url_for('house_details')
-@main.route('/houseDetails')
-def house_details():
+@main.route('/houseDetails/<int:house_id>')
+def house_details(house_id):
     return render_template('houseDetails.html')
 
 

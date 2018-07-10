@@ -73,6 +73,7 @@
                 dataType: 'json',
                 success: function(data) {
                     console.log(data);
+                    document.cookie = regData.mail
                     window.location.href='/'
                 },
                 error: function() {

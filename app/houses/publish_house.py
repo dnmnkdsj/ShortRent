@@ -50,7 +50,7 @@ def publish():
             db = _db.getdb()
             cur = db.cursor()
             # check whether the info is valid
-            if not (request.form.get('address') == '' and  request.form.get('title') == '' and  request.form.get('description') == ''  and  request.form.get('value')== ''):  # request.form.get('pictures')
+            if ( ((request.form.get('address','') == '') |(request.form.get('title','') == '') | ( request.form.get('description','') == '' ) | ( request.form.get('value','')== ''))):  # request.form.get('pictures')
                 return null_field
             if str_len(request.form.get('title')) > 20:
                 return long_title
