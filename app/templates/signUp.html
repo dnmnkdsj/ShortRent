@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>注册</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <!-- 内容  -->
+    <div>
+        <div style="width: 500px;margin: 120px auto 0 auto;">
+            <div class="login-grids">
+                <div class="login">
+                    <div class="login-right">
+                        <form action="" id="form-reg">
+                            <h3>Register </h3>
+                            <input v-model="username" name="name" type="text" placeholder="用户名" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = '用户名';}" required="">
+                            <input v-model="mail" name="mail" type="text" placeholder="邮箱" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = '邮箱';}" required="">
+                            <input v-model="password" type="password" id="pwd1" placeholder="密码" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = '密码';}" required="">
+                            <input type="password" placeholder="确认密码" id="pwd2" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = '确认密码';}" required="">
+                            <input type="button" id="btn-reg" value="立即注册">
+                            <p id="tips" style="color:#faa43d"></p>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <p>已有账号？<a href="#">点击这里</a>登陆</p>
+            </div>
+        </div>
+    </div>
+    <!-- 页脚 -->
+    <script>
+    var regData = new Vue({
+        el: '#form-reg',
+        data: {
+            username: '',
+            mail: '',
+            password: ''
+        }
+    });
+    //注册请求
+    $("#btn-reg").click(function() {
+        var pwd1 = $("#pwd1").val();
+        var pwd2 = $("#pwd2").val();
+        if (pwd1 != pwd2) {
+            $("#tips").text("两次密码不一致，请重新输入");
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: '/users/signUp',
+                data: {
+                    name: regData.username,
+                    mail: regData.mail,
+                    password: regData.password
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function() {
+                    alert("请求失败！");
+                }
+            });
+
+        }
+    });
+    </script>
+</body>

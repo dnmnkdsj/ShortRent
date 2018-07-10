@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jigsaw.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/vue.min.js"></script>
+</head>
+
+<body>
+    <!--  页头 -->
+    <!-- 内容  -->
+    <div>
+        <div style="width: 500px;margin: 120px auto 0 auto;">
+            <div class="login-grids">
+                <div class="login">
+                    <div class="login-right">
+                        <form action="" id="form-login">
+                            <h3>Login</h3>
+                            <input v-model="mail" name="mail" type="text" placeholder="邮箱/用户名" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = '邮箱/用户名';}" required="">
+                            <input v-model="password" name="password" type="password" placeholder="密码" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = 'Password';}" required="">
+                            <h4><a href="#">忘记密码</a> </h4>
+                            <div class="single-bottom" style="float: right;position: relative;top:-40px">
+                                <input v-model="remember" name="remember" type="checkbox" id="brand" value="">
+                                <label for="brand">记住密码</label>
+                        </div>
+                        <!-- 拼图验证码 -->
+                        <div id="captcha" style="position: relative"></div>
+                        <div id="msg"></div>
+                        <!-- <input type="button" id="btn-login" value="立即登录"> -->
+                    </form>
+                </div>
+            </div>
+            <p>还没有账号？ <a href="#">点击这里</a>注册</p>
+        </div>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <script>
+    var regData = new Vue({
+        el: 'form',
+        data: {
+            mail:'947426443@qq.com',
+            password:'123456',
+            remember:''
+        }
+    });
+
+
+    function cleanMsg() {
+        document.getElementById('msg').innerHTML = '';
+    }
+    //拼图验证码
+    jigsaw.init({
+        el: document.getElementById('captcha'),
+        onSuccess: function() {
+            //验证码验证成功即可发请求
+            $.ajax({
+                type: 'POST',
+                url: '/users/signIn',
+                data: {
+                    mail: regData.mail,
+                    password: regData.password,
+                    remember: regData.remember
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    document.cookie = regData.mail
+                    window.location.href='/'
+                },
+                error: function() {
+                    alert("请求失败！");
+                }
+            });
+        },
+        onFail: cleanMsg,
+        onRefresh: cleanMsg
+    });
+    </script>
+</body>
+
+</html>

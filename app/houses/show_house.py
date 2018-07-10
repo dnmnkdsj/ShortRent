@@ -10,7 +10,8 @@ import random
 
 
 # 返回house id 与 图片 标题
-#  res = "{"id":[idlist],"pictures":[[],[],[]],"title":[titlelist]}"
+#  res = "{"id":[[],[],[]],"pictures":[[],[],[]],"title":[[],[],[]]}"
+not_enough = jsonify("Not enough entry")
 
 @houses.route('/showhouse/')
 def showhouse():
@@ -23,19 +24,25 @@ def housemsg():
     cur = db.cursor()
     last = cur.execute("SELECT * FROM houses ORDER BY id desc LIMIT 0,1").fetchall()
     lastid = last[0][0]
-    COUNT = 3
-    ranIdList = random.sample(range(0, lastid + 1), COUNT);
+    # COUNT = 3
+    COUNT = 2    
     res = ""
     field1 = '"id"'
     field2 = '"title"'
-    res = res + field1 + ':' + ranIdList + ','
+    field3 = '"picture"'
     titlelist = []
-    exist_id_and_title = cur.execute("SELECT id,title FROM houses").fetchall()
-    ranIdList = random.sample(range(0, len(exist_id)), COUNT)
+    picturelist = []
+    exist_houses_info = cur.execute("SELECT id,title,picture FROM houses").fetchall()
+    if len(exist_houses_info) < COUNT:
+        return not_enough
+    ranIdList = random.sample(range(0, len(exist_houses_info)), COUNT)
+    res = res + field1 + ':' + str(ranIdList) + ','
     for each in ranIdList:
-        title = "'" + exist_id_and_title[each][1] + "'"
+        title = exist_houses_info[each][1] 
         titlelist.append(title)
-    res = res + field2 + ':' + titlelist + ','
+        pic = exist_houses_info[each][2] 
+        picturelist.append(pic)
+    res = res + field2 + ':' + str(titlelist) + ',' + field3 + ':' + str(picturelist)
     res = '{' + res + '}'
     cur.close()
     return jsonify(res)

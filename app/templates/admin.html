@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的房源</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/user.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div>
+    <h2 style="width:300px;margin: 50px auto 20px auto">短租网管理系统</h2>
+    <section class="container">
+        <p>&gt;&gt;admin</p>
+        <div class="row">
+            <div class="col-xs-4 col-md-2 col-md-offset-1 message-list">
+                <a href="userinfo.html" class="btn btn-default btn-lg">
+	          		<span class="glyphicon glyphicon-home"></span>房屋审核
+	        	</a>
+			</div>
+            <div class="col-xs-6 col-md-8">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#order" aria-controls="order" role="tab" data-toggle="tab">待审核</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#house" aria-controls="house" role="tab" data-toggle="tab">已通过</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#house" aria-controls="house" role="tab" data-toggle="tab">未通过</a>
+                    </li>
+                </ul>
+				<div class="tab-content">
+					<!-- 待审核的房屋 -->
+					<div role="tabpanel" class="tab-pane  fade in active" id="order">
+						<!-- 房屋1 -->
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+	                        	<a href="#" class="">
+	                            <img src="../static/images/homepage/2.jpg" alt="..."></a>
+	                        	<div class="room-price" style="margin: -15% 50% 0 auto"><span>￥89</span>
+	                        	</div>
+	                        	<div class="caption">
+	                            	<h4>衡复文化区独门花园Loft古典...</h4>
+	                            	<p><span class="badge">4.9分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+	                        	</div>
+	                        	<div style="margin-left: 20%">
+                                	<button class="btn btn-success">同意上线</button>
+                                	<button class="btn btn-default">拒绝上线</button>
+                            	</div>
+	                    	</div>
+                    	</div>
+                    	<!-- 房屋2,3,4... -->
+					</div>
+					<!-- 已通过的房屋 -->
+					<div role="tabpanel" class="tab-pane  fade" id="house">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+	                        	<a href="#" class="">
+	                            <img src="../static/images/homepage/2.jpg" alt="..."></a>
+	                        	<div class="room-price" style="margin: -15% 50% 0 auto"><span>￥89</span>
+	                        	</div>
+	                        	<div class="caption">
+	                            	<h4>衡复文化区独门花园Loft古典...</h4>
+	                            	<p><span class="badge">4.9分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+	                        	</div>
+                                <button style="margin-left: 60%" class="btn btn-default">重新审核</button>
+	                    	</div>
+                    	</div>
+                    </div>
+                    <!-- 未通过的房屋 -->
+                    <div role="tabpanel" class="tab-pane  fade" id="house">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+	                        	<a href="#" class="">
+	                            <img src="../static/images/homepage/2.jpg" alt="..."></a>
+	                        	<div class="room-price" style="margin: -15% 50% 0 auto"><span>￥89</span>
+	                        	</div>
+	                        	<div class="caption">
+	                            	<h4>衡复文化区独门花园Loft古典...</h4>
+	                            	<p><span class="badge">4.9分</span><small>整套公寓</small><small>2室2床1卫</small></p>
+	                        	</div>
+                                <button style="margin-left: 60%" class="btn btn-default">重新审核</button>
+	                    	</div>
+                    	</div>
+                    </div>					
+				</div>
+        	</div>
+		</div>
+    </section>
+</div>
+</body>
+
+</html>

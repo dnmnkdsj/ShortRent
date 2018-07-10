@@ -4,20 +4,26 @@
 from flask import Flask, render_template, url_for, request, jsonify, session, redirect
 from . import houses
 from ..db import database as _db
+import os,shutil
 
 # 接受信息： status: 管理员对房屋的操作，1代表通过，0代表拒绝 id:被操作的房屋的ID
 
-admin_has_check = "house has been checked"
-permission_denied = "Permission Denied"
+admin_has_check = jsonify("0","house has been checked")
+permission_denied = jsonify("1","Permission Denied")
+wrong_method = jsonify("2","method not POST")
 
+def DelLastChar(str):
+    str_list=list(str)
+    str_list.pop()
+    return "".join(str_list)
 
 @houses.route('/check/')
 def check():
     admin = session.get('admin', 0)
     if admin:
         return render_template("check.html")
-    else:  # 如果不是管理员就把ta赶回首页去
-        return redirect(url_for('home'))
+    else: 
+        return permission_denieds
 
 
 @houses.route('/checkpost/', methods=['GET', 'POST'])
@@ -31,11 +37,18 @@ def checkpost():
             cur = db.cursor()
             if operate == 0:
                 # Delete the house (lazy delete?)
+                picturepath = cur.execute("SELECT picture FROM houses WHERE id = ?", (request.form['id'],)).fetchall()[0][0]
+                picturepath = picturepath.split(";")
+                dirpath = DelLastChar(picturepath[0])
+                shutil.rmtree(dirpath) #?
+                #  ./photo/<house id>/0 -> ./photo/<house id>/
                 cur.execute("DELETE FROM houses WHERE id = ?", (request.form['id'],))
             if operate == 1:
                 cur.execute("UPDATE houses SET valid = 1 WHERE id=?", (request.form['id'],))
             cur.commit()
             cur.close()
             return admin_has_check
-        # return wrong_request???  (while not post)
-    return permission_denied
+        else:
+            return wrong_method
+    else:
+        return permission_denied
