@@ -65,7 +65,7 @@
 	            <a href="#house" aria-controls="house" role="tab" data-toggle="tab">已发布房源</a>
 	          </li>
 	        </ul>
-	        <div class="tab-content">
+	        <div  id="orderSelection" class="tab-content">
 	          <div role="tabpanel" class="tab-pane  fade in active" id="order">
 	            <div class="order-num">
 	              <label>
@@ -77,8 +77,8 @@
 	        	  <div class="order-address">
 	        	  	<img src="../static/images//u3537.png" alt="">
 	        	  	<div>
-	        	  	  <p><a href="#">标题</a></p>
-	        	  	  <p><span class="glyphicon glyphicon-map-marker"></span>地址</p>
+	        	  	  <p><a href="#">衡复文化区独门花园Loft古典</a></p>
+	        	  	  <p><span class="glyphicon glyphicon-map-marker"></span>上海</p>
 	        	  	</div>
 	        	  </div>
 	        	  <div class="order-item">
@@ -97,8 +97,10 @@
 	          	 </div>
 	          	<div class="order-item order-item-center">
 	              <div style="margin-top: -10px">
-	                <button class="btn btn-default" style="margin-bottom: 10px">接受订单</button>
-	                <button class="btn btn-default">拒绝订单</button>
+	                <button class="btn btn-default" style="margin-bottom: 10px" onclick="alert('已接受订单');
+					document.getElementById('orderSelection').style.setProperty('visibility','hidden');" >接受订单</button>
+	                <button class="btn btn-default" onclick="alert('已拒绝订单');
+					document.getElementById('orderSelection').style.setProperty('visibility','hidden');">拒绝订单</button>
 	              </div>
 	          	</div>
 	          </div>
@@ -146,4 +148,10 @@
         </div>
     </footer>	
 </body>
+<script>
+	function orderSelection(){
+		alert('已接受订单');
+		$('#orderSelection').style('visibility',hidden);
+	}
+</script>
 </html>
